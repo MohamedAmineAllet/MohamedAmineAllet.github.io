@@ -4,6 +4,7 @@
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  SkillsScene.init();
   Theme.init();   // Apply saved theme (dark / light)
   I18n.init();    // Apply saved language (fr / en)
   Reveal.init();  // Observe scroll-reveal elements

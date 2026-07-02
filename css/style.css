@@ -434,3 +434,96 @@ footer p {
   font-size:   12px;
   color:       var(--text-muted);
 }
+
+
+/* ── 14. SKILLS ICON CARDS ─────────────────────────────────── */
+
+/* Canvas behind the skills section */
+#skills-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  transition: opacity 0.4s ease;
+}
+html[data-theme="light"] #skills-canvas { opacity: 0.10; }
+
+/* Skills section needs position:relative so canvas anchors to it */
+#skills { position: relative; }
+#skills > * { position: relative; z-index: 1; }
+
+/* Grid of icon cards */
+.skill-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 10px;
+}
+
+.skill-icon-card {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             8px;
+  padding:         14px 6px 12px;
+  border:          1px solid var(--line);
+  border-radius:   8px;
+  background:      var(--bg-panel);
+  cursor:          default;
+  animation:       cardIn 0.45s cubic-bezier(.16,.84,.44,1) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
+  transition:      transform 0.25s ease, border-color 0.25s ease,
+                   box-shadow 0.25s ease, background 0.4s ease;
+  perspective:     400px;
+}
+.skill-icon-card:hover {
+  border-color: var(--teal);
+  transform:    translateY(-5px) rotateX(6deg);
+  box-shadow:   0 10px 24px -8px rgba(94, 234, 212, 0.22);
+  background:   var(--bg-panel-2, var(--bg-panel));
+}
+
+.skill-logo {
+  width:  32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.skill-icon-card:hover .skill-logo { transform: scale(1.2) translateY(-2px); }
+
+/* Invert monochrome logos (e.g. GitHub) in dark mode */
+html[data-theme="dark"]  .logo-invert-dark  { filter: invert(0.82) brightness(1.1); }
+html[data-theme="light"] .logo-invert-light { filter: invert(0.6); }
+
+.skill-label {
+  font-family: var(--font-mono);
+  font-size:   10px;
+  color:       var(--text-muted);
+  text-align:  center;
+  line-height: 1.25;
+  transition:  color 0.2s ease;
+}
+.skill-icon-card:hover .skill-label { color: var(--teal); }
+
+/* No-icon fallback: text glyph card */
+.skill-icon-card .skill-glyph-fallback {
+  width:  32px;
+  height: 32px;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  font-family:      var(--font-mono);
+  font-size:        18px;
+  color:            var(--teal);
+  border:           1px solid var(--line-strong);
+  border-radius:    6px;
+  background:       transparent;
+}
+
+/* Entrance animation */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
