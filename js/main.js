@@ -1,12 +1,16 @@
 // ============================================================
 // js/main.js
 // Entry point — boots all modules once the DOM is ready.
+// Load order: ScrollFX first (sets up portfolioState before
+// scenes try to read it), then everything else.
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  SkillsScene.init();
-  Theme.init();   // Apply saved theme (dark / light)
-  I18n.init();    // Apply saved language (fr / en)
-  Reveal.init();  // Observe scroll-reveal elements
-  Scene.init();   // Start Three.js hero scene
+  ScrollFX.init();     // Scroll progress bar + portfolioState
+  Theme.init();        // Dark / light theme
+  I18n.init();         // Language switching (fr / en)
+  Reveal.init();       // Scroll-reveal entrance animations
+  Scene.init();        // Hero Three.js scene
+  SkillsScene.init();  // Skills section Three.js background
+  Cursor.init();       // Custom cursor + magnetic buttons (desktop only)
 });
