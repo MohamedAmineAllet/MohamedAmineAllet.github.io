@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   I18n.init();         // Language switching (fr / en)
   Reveal.init();       // Scroll-reveal entrance animations
   Scene.init();        // Hero Three.js scene
+  Particles.init();    // Full-page particle network
   SkillsScene.init();  // Skills section Three.js background
   Cursor.init();       // Custom cursor + magnetic buttons (desktop only)
 });

@@ -600,3 +600,21 @@ body.custom-cursor * { cursor: none !important; }
   animation:       cardIn 0.45s cubic-bezier(.16,.84,.44,1) both;
   animation-delay: calc(var(--i, 0) * 55ms);
 }
+
+
+/* ── 19. BACKGROUND PARTICLE CANVAS ────────────────────────── */
+
+#bg-canvas {
+  position:       fixed;
+  top:            0; left: 0;
+  width:          100%;
+  height:         100%;
+  z-index:        0;
+  pointer-events: none;
+  opacity:        0.65;
+  transition:     opacity 0.4s ease;
+}
+html[data-theme="light"] #bg-canvas { opacity: 0.35; }
+
+/* Ensure all sections sit above the bg canvas */
+header, section, footer { position: relative; z-index: 1; }
