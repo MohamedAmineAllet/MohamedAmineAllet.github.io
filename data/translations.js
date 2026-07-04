@@ -11,6 +11,8 @@ const TRANSLATIONS = {
     nav_skills:   "Compétences",
     nav_projects: "Projets",
     nav_contact:  "Contact",
+    nav_xp:       "Background",
+    nav_xp:       "Parcours",
 
     // hero
     hero_eyebrow:      "Étudiant en génie logiciel",
@@ -75,6 +77,8 @@ const TRANSLATIONS = {
     nav_skills:   "Skills",
     nav_projects: "Projects",
     nav_contact:  "Contact",
+    nav_xp:       "Background",
+    nav_xp:       "Parcours",
 
     hero_eyebrow:      "Software Engineering Student",
     hero_tagline:      "I build <strong>intelligent systems</strong> that automate tasks and predict outcomes, and turn raw data into <strong>clear, usable information</strong>.",
@@ -128,3 +132,81 @@ const TRANSLATIONS = {
     footer_text: "© 2026 Mohamed-Amine Allet — Designed and built with curiosity.",
   },
 };
+
+// ── Experience & Education additions ──────────────────────────
+// Append to each language object manually or merge at runtime.
+// These are accessed via data-i18n attributes in the HTML.
+const XP_TRANSLATIONS = {
+  fr: {
+    xp_eyebrow:     "Parcours",
+    xp_title:       "Formation & Expérience",
+    xp_sub:         "Mon cheminement académique et mes expériences professionnelles.",
+    xp_edu_label:   "Formation",
+    xp_work_label:  "Expérience",
+    // Education
+    edu1_title:     "B.S. en génie logiciel",
+    edu1_org:       "École de Technologie Supérieure (ÉTS)",
+    edu1_date:      "Été 2026 — Présent",
+    edu1_badge:     "Systèmes intelligents & Analyse de données",
+    edu1_gpa:       "GPA : 3.43 / 4.00",
+    edu2_title:     "Cheminement universitaire en technologie (CUT)",
+    edu2_org:       "École de Technologie Supérieure (ÉTS)",
+    edu2_date:      "2025 — 2026",
+    edu3_title:     "DEC en Sciences Informatiques et Mathématiques",
+    edu3_org:       "Collège Bois-de-Boulogne",
+    edu3_date:      "Avril 2025",
+    edu3_badge:     "Mathématiques · Physique · Informatique",
+    // Work
+    work1_title:    "Agent de contrôle préembarquement (Certifié)",
+    work1_org:      "CATSA — GardaWorld",
+    work1_date:     "Août 2025 — Présent",
+    work1_d1:       "Analyse de flux de données en temps réel pour la détection d'anomalies et la gestion des alarmes.",
+    work1_d2:       "Coordination d'opérations d'urgence en milieu complexe, prise de décision sous pression.",
+    work1_d3:       "Application de protocoles stricts de sécurité dans un environnement hautement réglementé.",
+    work2_title:    "Opérateur d'attractions",
+    work2_org:      "La Ronde (Six Flags)",
+    work2_date:     "Juillet 2020 — Août 2021",
+    work2_d1:       "Opération de manèges et attractions en respectant rigoureusement les procédures de sécurité.",
+    work2_d2:       "Vérifications système régulières et gestion de la maintenance préventive.",
+    work2_d3:       "Développement d'un sens des responsabilités et de la communication d'équipe.",
+    // CV button
+    cv_btn: "Télécharger mon CV ↓",
+  },
+  en: {
+    xp_eyebrow:     "Background",
+    xp_title:       "Education & Experience",
+    xp_sub:         "My academic journey and professional experience.",
+    xp_edu_label:   "Education",
+    xp_work_label:  "Experience",
+    edu1_title:     "B.S. in Software Engineering",
+    edu1_org:       "École de Technologie Supérieure (ÉTS)",
+    edu1_date:      "Summer 2026 — Present",
+    edu1_badge:     "Intelligent Systems & Data Analysis",
+    edu1_gpa:       "GPA: 3.43 / 4.00",
+    edu2_title:     "University Technology Pathway (CUT)",
+    edu2_org:       "École de Technologie Supérieure (ÉTS)",
+    edu2_date:      "2025 — 2026",
+    edu3_title:     "DEC in Computer Science & Mathematics",
+    edu3_org:       "Collège Bois-de-Boulogne",
+    edu3_date:      "April 2025",
+    edu3_badge:     "Mathematics · Physics · Computer Science",
+    work1_title:    "Pre-board Screening Officer (Certified)",
+    work1_org:      "CATSA — GardaWorld",
+    work1_date:     "August 2025 — Present",
+    work1_d1:       "Analyzed real-time data streams for anomaly detection and alarm management.",
+    work1_d2:       "Coordinated emergency operations in complex environments, decision-making under pressure.",
+    work1_d3:       "Applied strict security protocols in a highly regulated environment.",
+    work2_title:    "Attractions Operator",
+    work2_org:      "La Ronde (Six Flags)",
+    work2_date:     "July 2020 — August 2021",
+    work2_d1:       "Operated rides and attractions while strictly following safety procedures.",
+    work2_d2:       "Performed regular system checks and managed preventive maintenance.",
+    work2_d3:       "Developed a strong sense of responsibility, attention to detail, and team communication.",
+    cv_btn: "Download my CV ↓",
+  },
+};
+
+// Merge into main TRANSLATIONS object
+Object.keys(XP_TRANSLATIONS).forEach(lang => {
+  Object.assign(TRANSLATIONS[lang], XP_TRANSLATIONS[lang]);
+});

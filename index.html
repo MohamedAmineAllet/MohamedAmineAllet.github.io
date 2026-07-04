@@ -22,10 +22,11 @@
   <nav>
     <div class="logo">M<span>.</span>A — <span>allet</span></div>
     <div class="nav-links">
-      <a href="#about"    data-i18n="nav_about">À propos</a>
-      <a href="#skills"   data-i18n="nav_skills">Compétences</a>
-      <a href="#projects" data-i18n="nav_projects">Projets</a>
-      <a href="#contact"  data-i18n="nav_contact">Contact</a>
+      <a href="#about"      data-i18n="nav_about">À propos</a>
+      <a href="#skills"     data-i18n="nav_skills">Compétences</a>
+      <a href="#experience" data-i18n="nav_xp">Parcours</a>
+      <a href="#projects"   data-i18n="nav_projects">Projets</a>
+      <a href="#contact"    data-i18n="nav_contact">Contact</a>
     </div>
     <div class="nav-controls">
       <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language">EN</button>
@@ -53,6 +54,7 @@
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary" data-i18n="hero_cta_projects">Voir mes projets →</a>
         <a href="#contact"  class="btn btn-ghost"   data-i18n="hero_cta_contact">Me contacter</a>
+        <a href="cv.pdf" download class="btn btn-cv" data-i18n="cv_btn">Télécharger mon CV ↓</a>
       </div>
     </div>
   </div>
@@ -172,6 +174,101 @@
 
 
 <!-- ============================================================
+     EXPERIENCE & EDUCATION
+     ============================================================ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i18n="xp_eyebrow">Parcours</div>
+    <h2 class="section-title reveal" data-i18n="xp_title">Formation & Expérience</h2>
+    <p class="section-sub reveal" data-i18n="xp_sub">Mon cheminement académique et mes expériences professionnelles.</p>
+
+    <div class="xp-grid">
+
+      <!-- ── Education ── -->
+      <div class="reveal d1">
+        <div class="xp-col-label" data-i18n="xp_edu_label">Formation</div>
+        <div class="timeline">
+
+          <!-- ÉTS — B.S. -->
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-title"  data-i18n="edu1_title">B.S. en génie logiciel</div>
+              <div class="tl-org"   data-i18n="edu1_org">École de Technologie Supérieure (ÉTS)</div>
+              <div class="tl-date"  data-i18n="edu1_date">Été 2026 — Présent</div>
+              <div class="tl-badge" data-i18n="edu1_badge">Systèmes intelligents & Analyse de données</div>
+              <div class="tl-gpa"   data-i18n="edu1_gpa">GPA : 3.43 / 4.00</div>
+            </div>
+          </div>
+
+          <!-- ÉTS — CUT -->
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-title" data-i18n="edu2_title">Cheminement universitaire en technologie (CUT)</div>
+              <div class="tl-org"  data-i18n="edu2_org">École de Technologie Supérieure (ÉTS)</div>
+              <div class="tl-date" data-i18n="edu2_date">2025 — 2026</div>
+            </div>
+          </div>
+
+          <!-- Bois-de-Boulogne -->
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-title"  data-i18n="edu3_title">DEC en Sciences Informatiques et Mathématiques</div>
+              <div class="tl-org"   data-i18n="edu3_org">Collège Bois-de-Boulogne</div>
+              <div class="tl-date"  data-i18n="edu3_date">Avril 2025</div>
+              <div class="tl-badge" data-i18n="edu3_badge">Mathématiques · Physique · Informatique</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Work Experience ── -->
+      <div class="reveal d2">
+        <div class="xp-col-label" data-i18n="xp_work_label">Expérience</div>
+        <div class="timeline">
+
+          <!-- CATSA -->
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-title" data-i18n="work1_title">Agent de contrôle préembarquement (Certifié)</div>
+              <div class="tl-org"  data-i18n="work1_org">CATSA — GardaWorld</div>
+              <div class="tl-date" data-i18n="work1_date">Août 2025 — Présent</div>
+              <ul class="tl-desc">
+                <li data-i18n="work1_d1">Analyse de flux de données en temps réel pour la détection d'anomalies et la gestion des alarmes.</li>
+                <li data-i18n="work1_d2">Coordination d'opérations d'urgence en milieu complexe, prise de décision sous pression.</li>
+                <li data-i18n="work1_d3">Application de protocoles stricts de sécurité dans un environnement hautement réglementé.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- La Ronde -->
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-title" data-i18n="work2_title">Opérateur d'attractions</div>
+              <div class="tl-org"  data-i18n="work2_org">La Ronde (Six Flags)</div>
+              <div class="tl-date" data-i18n="work2_date">Juillet 2020 — Août 2021</div>
+              <ul class="tl-desc">
+                <li data-i18n="work2_d1">Opération de manèges et attractions en respectant rigoureusement les procédures de sécurité.</li>
+                <li data-i18n="work2_d2">Vérifications système régulières et gestion de la maintenance préventive.</li>
+                <li data-i18n="work2_d3">Développement d'un sens des responsabilités et de la communication d'équipe.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
      PROJECTS
      ============================================================ -->
 <section id="projects">
@@ -219,6 +316,7 @@
     <p class="reveal d1" data-i18n="contact_p">Que ce soit pour un stage, une collaboration ou simplement échanger sur l'IA et les données — n'hésitez pas à me contacter.</p>
     <div class="contact-links reveal d2">
       <a href="mailto:amineallet99@gmail.com" class="btn btn-primary" data-i18n="contact_email">Envoyer un courriel →</a>
+      <a href="cv.pdf" download class="btn btn-cv" data-i18n="cv_btn">Télécharger mon CV ↓</a>
       <a href="https://github.com/MohamedAmineAllet"          target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
       <a href="http://www.linkedin.com/in/mohamed-amine-allet" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
     </div>
