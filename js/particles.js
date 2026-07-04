@@ -1,158 +1,199 @@
 // ============================================================
 // js/particles.js
-// Full-page fixed particle network in background.
-// - Particles drift and connect with lines when close
-// - Mouse attracts particles gently within a radius
-// - Scroll speed adds turbulence
-// - Color shifts gradually from teal → amber as you scroll
+// Subtle ambient atmosphere:
+//   • ~55 soft dots that gently drift toward the mouse
+//   • Very faint connecting lines between close dots
+//   • Sonar ripples when mouse moves
+//   • Scroll streaks on fast scroll
+//   • Periodic scan line
 // ============================================================
 
 const Particles = (() => {
 
-  // ── Config ────────────────────────────────────────────────
-  const COUNT       = 85;
-  const MAX_DIST    = 135;   // max px for connecting lines
-  const MOUSE_R     = 180;   // mouse attraction radius
-  const MOUSE_F     = 0.016; // mouse force strength
-  const FRICTION    = 0.965;
-  const BASE_SPEED  = 0.35;
+  const T = { r: 94, g: 234, b: 212 }; // teal
 
-  // Colors: teal → amber (scroll lerp)
-  const C_TEAL  = [94,  234, 212];
-  const C_AMBER = [242, 169, 59 ];
+  const COUNT          = 55;
+  const MOUSE_RADIUS   = 160;  // px — attraction zone
+  const MOUSE_FORCE    = 0.012; // how strongly dots pull toward cursor
+  const CONNECT_DIST   = 110;  // px — max distance to draw a line
+  const FRICTION       = 0.96;
+  const MAX_SPEED      = 1.2;
 
-  // ── State ─────────────────────────────────────────────────
-  let canvas, ctx;
-  let W = window.innerWidth;
-  let H = window.innerHeight;
-  let mouseX = -999, mouseY = -999;
-  let particles = [];
+  let canvas, ctx, W, H;
+  let dots    = [];
+  let ripples = [];
+  let scan;
+  let mx = -999, my = -999;
+  let lastRippleX = -999, lastRippleY = -999, lastRippleT = 0;
+  let frame = 0;
 
-  // ── Particle class ────────────────────────────────────────
-  class Particle {
-    constructor() {
-      this.x  = Math.random() * W;
-      this.y  = Math.random() * H;
-      this.vx = (Math.random() - 0.5) * BASE_SPEED;
-      this.vy = (Math.random() - 0.5) * BASE_SPEED;
-      this.r  = 1.4 + Math.random() * 1.6;
-      this.baseAlpha = 0.25 + Math.random() * 0.35;
+  // ── Dot ───────────────────────────────────────────────────
+  class Dot {
+    constructor(randomY = false) {
+      this.x     = Math.random() * W;
+      this.y     = randomY ? Math.random() * H : H + 5;
+      this.vx    = (Math.random() - 0.5) * 0.18;
+      this.vy    = -(0.06 + Math.random() * 0.08); // slow upward drift
+      this.r     = 1.2 + Math.random() * 1.2;
+      this.base  = 0.12 + Math.random() * 0.10;    // base opacity
+      this.phase = Math.random() * Math.PI * 2;
     }
 
     update() {
-      // Mouse gentle attraction
-      const dx   = mouseX - this.x;
-      const dy   = mouseY - this.y;
-      const dist = Math.hypot(dx, dy);
-      if (dist < MOUSE_R && dist > 1) {
-        const f = (1 - dist / MOUSE_R) * MOUSE_F;
-        this.vx += (dx / dist) * f;
-        this.vy += (dy / dist) * f;
+      // Pull toward mouse when within radius
+      const dx = mx - this.x, dy = my - this.y;
+      const d  = Math.hypot(dx, dy);
+      if (d < MOUSE_RADIUS && d > 1) {
+        const f = (1 - d / MOUSE_RADIUS) * MOUSE_FORCE;
+        this.vx += (dx / d) * f;
+        this.vy += (dy / d) * f;
       }
 
-      // Scroll turbulence — fast scroll pushes particles
-      const vel = window.portfolioState?.scrollVelocity || 0;
-      this.vy += vel * 0.0025;
-      this.vx += vel * (Math.random() - 0.5) * 0.001;
+      // Scroll pushes dots downward briefly
+      const sv = window.portfolioState?.scrollVelocity || 0;
+      this.vy += sv * 0.001;
 
-      // Friction
-      this.vx *= FRICTION;
-      this.vy *= FRICTION;
+      // Clamp speed + friction
+      this.vx *= FRICTION; this.vy *= FRICTION;
+      const spd = Math.hypot(this.vx, this.vy);
+      if (spd > MAX_SPEED) { this.vx = this.vx / spd * MAX_SPEED; this.vy = this.vy / spd * MAX_SPEED; }
 
-      // Clamp speed
-      const speed = Math.hypot(this.vx, this.vy);
-      if (speed > 2.5) { this.vx = (this.vx / speed) * 2.5; this.vy = (this.vy / speed) * 2.5; }
+      this.x += this.vx; this.y += this.vy;
 
-      this.x += this.vx;
-      this.y += this.vy;
+      // Wrap edges
+      if (this.x < -8)    this.x = W + 8;
+      if (this.x > W + 8) this.x = -8;
+      if (this.y < -8)    this.y = H + 8;
+      if (this.y > H + 8) this.y = -8;
 
-      // Wrap around viewport edges (soft)
-      if (this.x < -30)    this.x = W + 30;
-      if (this.x > W + 30) this.x = -30;
-      if (this.y < -30)    this.y = H + 30;
-      if (this.y > H + 30) this.y = -30;
+      // Gentle pulse opacity
+      this.alpha = this.base * (0.6 + 0.4 * Math.sin(frame * 0.008 + this.phase));
+
+      // Boost opacity when near mouse
+      if (d < MOUSE_RADIUS) this.alpha = Math.min(0.5, this.alpha + (1 - d / MOUSE_RADIUS) * 0.25);
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${T.r},${T.g},${T.b},${this.alpha})`;
+      ctx.fill();
     }
   }
 
-  // ── Color lerp helper ─────────────────────────────────────
-  function lerpColor(a, b, t) {
-    return [
-      Math.round(a[0] + (b[0] - a[0]) * t),
-      Math.round(a[1] + (b[1] - a[1]) * t),
-      Math.round(a[2] + (b[2] - a[2]) * t),
-    ];
+  // ── Faint lines between close dots ────────────────────────
+  function drawConnections() {
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const a = dots[i], b = dots[j];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d > CONNECT_DIST) continue;
+        const alpha = (1 - d / CONNECT_DIST) * 0.07; // very faint
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(${T.r},${T.g},${T.b},${alpha})`;
+        ctx.lineWidth   = 0.5;
+        ctx.stroke();
+      }
+    }
   }
 
-  // ── Main draw loop ────────────────────────────────────────
+  // ── Ripple (sonar ping on mouse move) ─────────────────────
+  class Ripple {
+    constructor(x, y) {
+      this.x = x; this.y = y;
+      this.r = 2; this.maxR = 50 + Math.random() * 30;
+      this.done = false;
+    }
+    update() {
+      this.r   += 1.0;
+      this.alpha = 0.10 * (1 - this.r / this.maxR);
+      if (this.r >= this.maxR) this.done = true;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${T.r},${T.g},${T.b},${this.alpha})`;
+      ctx.lineWidth   = 0.6;
+      ctx.stroke();
+    }
+  }
+
+  // ── Scan line ─────────────────────────────────────────────
+  class ScanLine {
+    constructor() { this.y = -10; this.active = false; this.timer = 0; this.next = 480; }
+    update() {
+      this.timer++;
+      if (!this.active && this.timer >= this.next) { this.active = true; this.y = -10; this.timer = 0; }
+      if (this.active) { this.y += 2.2; if (this.y > H + 10) { this.active = false; this.next = 420 + Math.random() * 200; } }
+    }
+    draw() {
+      if (!this.active) return;
+      const g = ctx.createLinearGradient(0, this.y - 12, 0, this.y + 12);
+      g.addColorStop(0,   `rgba(${T.r},${T.g},${T.b},0)`);
+      g.addColorStop(0.5, `rgba(${T.r},${T.g},${T.b},0.03)`);
+      g.addColorStop(1,   `rgba(${T.r},${T.g},${T.b},0)`);
+      ctx.fillStyle = g; ctx.fillRect(0, this.y - 12, W, 24);
+    }
+  }
+
+  // ── Main loop ─────────────────────────────────────────────
   function draw() {
     requestAnimationFrame(draw);
     ctx.clearRect(0, 0, W, H);
+    frame++;
 
-    // Color based on scroll progress (0 = teal, 1 = amber, back to teal)
-    const total    = Math.max(document.body.scrollHeight - H, 1);
-    const progress = window.scrollY / total;
-    // Ping-pong: teal → amber → teal
-    const pingpong = Math.abs((progress * 2) % 2 - 1);
-    const [r, g, b] = lerpColor(C_TEAL, C_AMBER, pingpong);
+    scan.update(); scan.draw();
+    drawConnections();
+    dots.forEach(d => { d.update(); d.draw(); });
+    ripples = ripples.filter(r => { r.update(); r.draw(); return !r.done; });
 
-    // Draw connections first (behind particles)
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      for (let j = i + 1; j < particles.length; j++) {
-        const q    = particles[j];
-        const dx   = p.x - q.x;
-        const dy   = p.y - q.y;
-        const dist = Math.hypot(dx, dy);
-        if (dist < MAX_DIST) {
-          const alpha = (1 - dist / MAX_DIST) * 0.14;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
-          ctx.lineWidth   = 0.75;
-          ctx.stroke();
-        }
-      }
+    // Soft mouse aura
+    if (mx > 0) {
+      const aura = ctx.createRadialGradient(mx, my, 0, mx, my, 140);
+      aura.addColorStop(0,   `rgba(${T.r},${T.g},${T.b},0.035)`);
+      aura.addColorStop(1,   `rgba(${T.r},${T.g},${T.b},0)`);
+      ctx.beginPath(); ctx.arc(mx, my, 140, 0, Math.PI * 2);
+      ctx.fillStyle = aura; ctx.fill();
     }
 
-    // Draw + update particles
-    particles.forEach((p) => {
-      p.update();
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${p.baseAlpha})`;
-      ctx.fill();
-    });
+    // Scroll streaks
+    const sv = Math.abs(window.portfolioState?.scrollVelocity || 0);
+    if (sv > 0.5) {
+      for (let i = 0; i < 2; i++) {
+        const y = Math.random() * H;
+        ctx.beginPath(); ctx.moveTo(W * 0.1, y); ctx.lineTo(W * 0.9, y);
+        ctx.strokeStyle = `rgba(${T.r},${T.g},${T.b},${Math.min(sv * 0.015, 0.04)})`;
+        ctx.lineWidth = 0.4; ctx.stroke();
+      }
+    }
   }
 
   // ── Resize ────────────────────────────────────────────────
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
 
-  // ── Public API ────────────────────────────────────────────
+  // ── Init ──────────────────────────────────────────────────
   function init() {
     canvas = document.createElement('canvas');
     canvas.id = 'bg-canvas';
     document.body.insertBefore(canvas, document.body.firstChild);
     ctx = canvas.getContext('2d');
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
 
-    resize();
+    for (let i = 0; i < COUNT; i++) dots.push(new Dot(true));
+    scan = new ScanLine();
+
     window.addEventListener('resize', resize);
-
-    // Spread particles across viewport
-    for (let i = 0; i < COUNT; i++) {
-      particles.push(new Particle());
-    }
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      const now = Date.now(), d = Math.hypot(e.clientX - lastRippleX, e.clientY - lastRippleY);
+      if (d > 55 && now - lastRippleT > 280 && ripples.length < 3) {
+        ripples.push(new Ripple(e.clientX, e.clientY));
+        lastRippleX = e.clientX; lastRippleY = e.clientY; lastRippleT = now;
+      }
     });
-
-    // Hide mouse on leave
-    document.addEventListener('mouseleave', () => { mouseX = -999; mouseY = -999; });
+    document.addEventListener('mouseleave', () => { mx = -999; my = -999; });
 
     draw();
   }

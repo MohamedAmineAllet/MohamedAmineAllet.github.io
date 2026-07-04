@@ -611,10 +611,10 @@ body.custom-cursor * { cursor: none !important; }
   height:         100%;
   z-index:        0;
   pointer-events: none;
-  opacity:        0.65;
+  opacity:        0.7;
   transition:     opacity 0.4s ease;
 }
-html[data-theme="light"] #bg-canvas { opacity: 0.75; }
+html[data-theme="light"] #bg-canvas { opacity: 0.45; }
 
 /* Ensure all sections sit above the bg canvas */
 header, section, footer { position: relative; z-index: 1; }
