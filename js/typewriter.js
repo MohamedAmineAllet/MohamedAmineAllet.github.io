@@ -21,7 +21,7 @@ const Typewriter = (() => {
 
   const TYPE_SPEED    = 52;   // ms per character typed
   const DELETE_SPEED  = 26;   // ms per character deleted
-  const PAUSE_FULL    = 2000; // ms pause after full title is shown
+  const PAUSE_FULL    = 3000; // ms pause after full title is shown
   const PAUSE_EMPTY   = 380;  // ms pause before typing next title
 
   let el;
