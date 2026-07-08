@@ -14,4 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
   Particles.init();    // Full-page particle network
   SkillsScene.init();  // Skills section Three.js background
   Cursor.init();       // Custom cursor + magnetic buttons (desktop only)
+  Typewriter.init();
 });

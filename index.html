@@ -45,7 +45,9 @@
   <canvas id="hero-canvas"></canvas>
   <div class="wrap">
     <div class="hero-content">
-      <div class="eyebrow" data-i18n="hero_eyebrow">Étudiant en génie logiciel</div>
+      <div class="eyebrow">
+        <span id="typewriter-text"></span><span id="typewriter-cursor"></span>
+      </div>
       <h1 class="hero-name">Mohamed-Amine<span class="last">Allet</span></h1>
       <p class="hero-tagline" data-i18n-html="hero_tagline">
         Je conçois des <strong>systèmes intelligents</strong> qui automatisent des tâches et prédisent des résultats,
@@ -287,6 +289,7 @@
         <li data-i18n="p1_d2">Contribution à la visualisation graphique de la progression financière et à un système de notifications par courriel pour les rappels quotidiens.</li>
       </ul>
       <div class="project-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">HTML</span><span class="tag">CSS (Vanilla & Tailwind)</span></div>
+      <div style="margin-top:20px"><a href="projects/budgets.html" class="btn btn-ghost" style="font-size:12px">Voir les détails →</a></div>
     </div>
 
     <div class="project-card reveal d2">
@@ -300,6 +303,7 @@
         <li data-i18n="p2_d3">Conception et développement d'une interface graphique interactive (GUI) pour le contrôle en temps réel du système, assurant une expérience fluide et réactive.</li>
       </ul>
       <div class="project-tags"><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Computer Vision</span><span class="tag">GUI</span><span class="tag" data-i18n="p2_tag_data">Analyse de données</span></div>
+      <div style="margin-top:20px"><a href="projects/drone.html" class="btn btn-ghost" style="font-size:12px">Voir les détails →</a></div>
     </div>
 
   </div>
@@ -316,7 +320,7 @@
     <p class="reveal d1" data-i18n="contact_p">Que ce soit pour un stage, une collaboration ou simplement échanger sur l'IA et les données — n'hésitez pas à me contacter.</p>
     <div class="contact-links reveal d2">
       <a href="mailto:amineallet99@gmail.com" class="btn btn-primary" data-i18n="contact_email">Envoyer un courriel →</a>
-      <a href="data/public/CvPro(VersionFrançaise)AvecLiens.docx" download class="btn btn-cv" data-i18n="cv_btn">Télécharger mon CV ↓</a>
+      <a href="cv.pdf" download class="btn btn-cv" data-i18n="cv_btn">Télécharger mon CV ↓</a>
       <a href="https://github.com/MohamedAmineAllet"          target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
       <a href="http://www.linkedin.com/in/mohamed-amine-allet" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
     </div>
@@ -344,6 +348,7 @@
 <script src="js/scroll-fx.js"></script>
 <script src="js/cursor.js"></script>
 <script src="js/particles.js"></script>
+<script src="js/typewriter.js"></script>
 <script src="js/main.js"></script>
 
 </body>

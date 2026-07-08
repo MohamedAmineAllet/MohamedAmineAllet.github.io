@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Drone — Mohamed-Amine Allet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050912;--bg-panel:#0b1424;--text:#e0f2fe;--text-muted:#6a9fc0;--accent:#38bdf8;--line:rgba(56,189,248,.10);--line-strong:rgba(56,189,248,.22);--fd:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'IBM Plex Mono',monospace}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.01em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+@media(max-width:720px){.wrap{padding:0 20px}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,.84,.44,1),transform .7s cubic-bezier(.16,.84,.44,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+/* NAV */
+.back-nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(5,9,18,.75);border-bottom:1px solid var(--line);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+.back-btn{font-family:var(--fm);font-size:12px;letter-spacing:.04em;color:var(--text-muted);display:flex;align-items:center;gap:8px;transition:color .2s}
+.back-btn:hover{color:var(--accent)}
+.back-btn::before{content:'←';font-size:14px}
+.nav-logo{font-family:var(--fm);font-size:13px;color:var(--text-muted)}
+.nav-logo span{color:var(--accent)}
+
+/* HERO */
+.proj-hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}
+#proj-canvas{position:absolute;inset:0;z-index:0;opacity:.9}
+.proj-hero-content{position:relative;z-index:2;max-width:680px}
+.proj-eyebrow{font-family:var(--fm);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.proj-eyebrow::before{content:'';width:16px;height:1px;background:var(--accent)}
+.proj-title{font-size:clamp(36px,6vw,68px);line-height:1.0;margin-bottom:20px}
+.proj-title span{color:var(--accent)}
+.proj-tagline{font-size:clamp(15px,1.8vw,17px);color:var(--text-muted);max-width:520px;margin-bottom:32px}
+.proj-meta{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:36px}
+.meta-tag{font-family:var(--fm);font-size:11px;letter-spacing:.04em;border:1px solid var(--line-strong);padding:5px 11px;border-radius:2px;color:var(--text-muted)}
+.meta-tag.hi{border-color:var(--accent);color:var(--accent)}
+.proj-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--fm);font-size:12px;letter-spacing:.03em;padding:12px 22px;border-radius:2px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;gap:7px;transition:all .25s;cursor:pointer}
+.btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:500}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px -8px rgba(56,189,248,.45)}
+.btn-ghost{color:var(--text-muted)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-off{opacity:.38;pointer-events:none}
+
+/* STATS HERO */
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:40px}
+.hstat{border-left:2px solid var(--accent);padding-left:16px}
+.hstat-val{font-family:var(--fd);font-size:28px;font-weight:600;color:var(--accent)}
+.hstat-lbl{font-family:var(--fm);font-size:11px;color:var(--text-muted);margin-top:2px}
+
+/* SECTIONS */
+.sec{padding:96px 0;border-top:1px solid var(--line)}
+.sec-ey{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:9px;margin-bottom:13px}
+.sec-ey::before{content:'';width:13px;height:1px;background:var(--accent)}
+h2.sec-t{font-size:clamp(22px,3.5vw,34px);margin-bottom:32px}
+
+/* OVERVIEW */
+.ov-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:52px;align-items:start}
+@media(max-width:860px){.ov-grid{grid-template-columns:1fr;gap:36px}}
+.ov-text p{font-size:15px;color:var(--text-muted);margin-bottom:16px}
+.ov-text p:last-child{margin-bottom:0}
+.ov-text strong{color:var(--text)}
+.info-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:5px;padding:18px 20px;margin-bottom:10px}
+.info-card:last-child{margin-bottom:0}
+.info-lbl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:6px}
+.info-val{font-family:var(--fd);font-size:14px;color:var(--text)}
+
+/* CONTRIB */
+.contrib-list{list-style:none}
+.contrib-list li{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
+.contrib-list li:last-child{border-bottom:none}
+.c-num{font-family:var(--fm);font-size:11px;color:var(--accent);opacity:.55;min-width:26px;padding-top:3px}
+.c-text{font-size:15px;color:var(--text-muted);line-height:1.65}
+.c-text strong{color:var(--text)}
+
+/* STACK */
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.stack-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:5px;padding:14px 16px;display:flex;align-items:center;gap:10px;transition:border-color .2s,transform .2s}
+.stack-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.stack-icon{width:26px;height:26px;object-fit:contain;flex-shrink:0}
+.stack-name{font-family:var(--fm);font-size:12px;color:var(--text)}
+
+/* SCREENSHOT */
+.img-placeholder{background:var(--bg-panel);border:1px dashed var(--line-strong);border-radius:8px;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.img-placeholder p{font-family:var(--fm);font-size:11px;color:var(--text-muted);opacity:.6}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:32px 0}
+.ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.ft-copy{font-family:var(--fm);font-size:11px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+
+<nav class="back-nav">
+  <a href="../index.html" class="back-btn">Portfolio</a>
+  <div class="nav-logo">M<span>.</span>A — <span>allet</span></div>
+</nav>
+
+<section class="proj-hero">
+  <canvas id="proj-canvas"></canvas>
+  <div class="wrap">
+    <div class="proj-hero-content">
+      <div class="proj-eyebrow">Projet académique · Computer Vision · IA</div>
+      <h1 class="proj-title">Drone piloté par<br><span>reconnaissance de gestes</span></h1>
+      <p class="proj-tagline">Système de contrôle de drone en temps réel par vision par ordinateur, avec prédiction météorologique par ML et interface graphique interactive.</p>
+      <div class="proj-meta">
+        <span class="meta-tag hi">Software</span>
+        <span class="meta-tag">Fév. — Mai 2025</span>
+        <span class="meta-tag">Python · OpenCV · TensorFlow</span>
+      </div>
+      <div class="proj-cta">
+        <a href="#" class="btn btn-primary btn-off">GitHub (privé) →</a>
+        <a href="../index.html" class="btn btn-ghost">← Retour</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-val">85%</div><div class="hstat-lbl">Précision météo</div></div>
+        <div class="hstat"><div class="hstat-val">1 000+</div><div class="hstat-lbl">Datasets entraînement</div></div>
+        <div class="hstat"><div class="hstat-val">Temps réel</div><div class="hstat-lbl">Contrôle gestes</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="overview">
+  <div class="wrap">
+    <div class="sec-ey reveal">Aperçu</div>
+    <h2 class="sec-t reveal">Le projet</h2>
+    <div class="ov-grid">
+      <div class="ov-text reveal d1">
+        <p>Ce projet combine <strong>vision par ordinateur</strong> et <strong>apprentissage automatique</strong> pour créer un système de contrôle de drone entièrement basé sur les gestes de la main. La caméra capture les mouvements en temps réel, OpenCV les interprète, et les traduit en commandes de vol.</p>
+        <p>Un second module de <strong>prédiction météorologique</strong> a été développé à partir de plus de 1 000 ensembles de données historiques, atteignant une précision de 85%. Ce module permet de déterminer les conditions optimales de vol.</p>
+        <p>Une <strong>interface graphique interactive</strong> (GUI) centralise le contrôle en temps réel du système, offrant une expérience fluide et réactive à l'opérateur.</p>
+      </div>
+      <div class="reveal d2">
+        <div class="info-card"><div class="info-lbl">Rôle</div><div class="info-val">Membre Software</div></div>
+        <div class="info-card"><div class="info-lbl">Durée</div><div class="info-val">Fév. — Mai 2025 (4 mois)</div></div>
+        <div class="info-card"><div class="info-lbl">Domaine</div><div class="info-val">Computer Vision · ML · Robotique</div></div>
+        <div class="info-card"><div class="info-lbl">Type</div><div class="info-val">Projet académique</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Aperçu visuel</div>
+    <h2 class="sec-t reveal">Captures d'écran</h2>
+    <div class="img-placeholder reveal d1">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" opacity=".3"><circle cx="12" cy="12" r="9" stroke="#38bdf8" stroke-width="1.2"/><circle cx="12" cy="12" r="3" stroke="#38bdf8" stroke-width="1.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="#38bdf8" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <p>Captures d'écran à ajouter</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contributions">
+  <div class="wrap">
+    <div class="sec-ey reveal">Contributions</div>
+    <h2 class="sec-t reveal">Ce que j'ai construit</h2>
+    <ul class="contrib-list">
+      <li class="reveal d1"><span class="c-num">01</span><span class="c-text"><strong>Système de reconnaissance de gestes</strong> — Conception et implémentation du pipeline de vision par ordinateur avec OpenCV pour détecter et interpréter les gestes de la main en temps réel et les traduire en commandes de vol.</span></li>
+      <li class="reveal d2"><span class="c-num">02</span><span class="c-text"><strong>Module de prédiction météo (ML)</strong> — Développement et optimisation d'un modèle d'apprentissage automatique entraîné sur 1 000+ datasets historiques, atteignant 85% de précision pour déterminer les conditions de vol optimales.</span></li>
+      <li class="reveal d3"><span class="c-num">03</span><span class="c-text"><strong>Interface graphique (GUI)</strong> — Conception d'une interface interactive permettant le contrôle et la supervision du système en temps réel, avec affichage des données de vol et des prédictions météo.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="stack">
+  <div class="wrap">
+    <div class="sec-ey reveal">Technologies</div>
+    <h2 class="sec-t reveal">Stack technique</h2>
+    <div class="stack-grid reveal d1">
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span class="stack-name">Python</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="OpenCV"><span class="stack-name">OpenCV</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><span class="stack-name">TensorFlow</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy"><span class="stack-name">NumPy</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas"><span class="stack-name">Pandas</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"><span class="stack-name">Git</span></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap ft"><span class="ft-copy">© 2026 Mohamed-Amine Allet</span><a href="../index.html" class="btn btn-ghost">← Retour au portfolio</a></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+(function(){
+  const cv=document.getElementById('proj-canvas');
+  if(!cv||!(cv.getContext('webgl')||cv.getContext('experimental-webgl')))return;
+  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(50,cv.clientWidth/cv.clientHeight,.1,100);
+  cam.position.z=13;
+  const ren=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+  ren.setPixelRatio(Math.min(devicePixelRatio,2));ren.setSize(cv.clientWidth,cv.clientHeight);
+  scene.add(new THREE.AmbientLight(0xffffff,.4));
+  const d1=new THREE.DirectionalLight(0x38bdf8,1.2);d1.position.set(5,5,6);scene.add(d1);
+  const d2=new THREE.DirectionalLight(0x0ea5e9,.5);d2.position.set(-5,-3,4);scene.add(d2);
+
+  // Central drone-like wireframe octahedron
+  const drone=new THREE.Mesh(new THREE.OctahedronGeometry(1.4,0),new THREE.MeshStandardMaterial({color:0x38bdf8,wireframe:true,roughness:.3,metalness:.3,transparent:true,opacity:.85}));
+  scene.add(drone);
+
+  // Propeller rings (4 tori around the drone)
+  const propPositions=[[-1.8,0,0],[1.8,0,0],[0,0,-1.8],[0,0,1.8]];
+  const props=propPositions.map(p=>{
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(.55,.04,8,32),new THREE.MeshStandardMaterial({color:0x7dd3fc,wireframe:false,transparent:true,opacity:.6}));
+    ring.position.set(...p);ring.rotation.x=Math.PI/2;scene.add(ring);return ring;
+  });
+
+  // Floating scan rings (radar circles)
+  const rings=[];
+  for(let i=0;i<4;i++){
+    const r=new THREE.Mesh(new THREE.TorusGeometry(2+i*1.2,.025,8,80),new THREE.MeshStandardMaterial({color:0x0ea5e9,transparent:true,opacity:.18-i*.03}));
+    r.rotation.x=Math.PI/2+i*.15;scene.add(r);rings.push(r);
+  }
+
+  // Radar sweep line
+  const sweepGeo=new THREE.PlaneGeometry(5,.015);
+  const sweepMat=new THREE.MeshBasicMaterial({color:0x38bdf8,transparent:true,opacity:.5,side:THREE.DoubleSide});
+  const sweep=new THREE.Mesh(sweepGeo,sweepMat);
+  sweep.rotation.x=Math.PI/2;sweep.position.set(2.5,0,0);
+  const sweepPivot=new THREE.Object3D();sweepPivot.add(sweep);scene.add(sweepPivot);
+
+  let mx=0,my=0,tx=0,ty=0;
+  window.addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;});
+  window.addEventListener('resize',()=>{cam.aspect=cv.clientWidth/cv.clientHeight;cam.updateProjectionMatrix();ren.setSize(cv.clientWidth,cv.clientHeight);});
+  const t0=Date.now();
+  (function loop(){
+    requestAnimationFrame(loop);const t=(Date.now()-t0)/1000;
+    tx+=(mx-tx)*.04;ty+=(my-ty)*.04;
+    drone.rotation.y+=.006;drone.rotation.x+=.003;
+    drone.position.y=Math.sin(t*.5)*.25;
+    props.forEach((p,i)=>{p.rotation.z+=.12*(i%2===0?1:-1);});
+    rings.forEach((r,i)=>{r.rotation.z+=.002*(i%2===0?1:-1);});
+    sweepPivot.rotation.y+=.025;
+    cam.position.x=tx*1.5;cam.position.y=-ty*1.0;
+    cam.lookAt(scene.position);ren.render(scene,cam);
+  })();
+})();
+</script>
+</body>
+</html>
