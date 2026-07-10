@@ -210,3 +210,50 @@ const XP_TRANSLATIONS = {
 Object.keys(XP_TRANSLATIONS).forEach(lang => {
   Object.assign(TRANSLATIONS[lang], XP_TRANSLATIONS[lang]);
 });
+
+// ── New foundations + skills additions ───────────────────────
+const NEW_FOUND = {
+  fr: {
+    found_8:  "Structures de données",
+    found_9:  "Conception de bases de données",
+    found_10: "Analyse de données",
+    found_11: "Optimisation des performances",
+    found_12: "Développement d'API REST",
+    found_13: "CI/CD",
+    found_14: "Vision par ordinateur",
+    found_15: "Machine Learning",
+    found_16: "Entraînement & évaluation de modèles",
+    found_17: "Refactorisation de code",
+    found_18: "Développement mobile",
+    found_19: "Agile / Scrum",
+    found_20: "Conception d'interfaces (UI)",
+    found_21: "Synchronisation des données",
+    found_22: "Persistance des données",
+    found_23: "Authentification",
+    found_24: "Optimisation de l'expérience utilisateur (UX)",
+    found_25: "Gestion de bases de données relationnelles",
+    found_26: "Design réactif",
+  },
+  en: {
+    found_8:  "Data structures",
+    found_9:  "Database design",
+    found_10: "Data analysis",
+    found_11: "Performance optimization",
+    found_12: "REST API development",
+    found_13: "CI/CD",
+    found_14: "Computer vision",
+    found_15: "Machine Learning",
+    found_16: "Model training & evaluation",
+    found_17: "Code refactoring",
+    found_18: "Mobile development",
+    found_19: "Agile / Scrum",
+    found_20: "UI design",
+    found_21: "Data synchronization",
+    found_22: "Data persistence",
+    found_23: "Authentication",
+    found_24: "User Experience (UX) Optimization",
+    found_25: "Relational Database Management",
+    found_26: "Responsive Design",
+  },
+};
+Object.keys(NEW_FOUND).forEach(lang => Object.assign(TRANSLATIONS[lang], NEW_FOUND[lang]));
