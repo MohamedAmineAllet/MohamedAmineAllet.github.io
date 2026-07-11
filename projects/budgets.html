@@ -8,21 +8,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060f09;--bg-panel:#0c1a10;--text:#e8f5e9;--text-muted:#7a9b84;--accent:#4ade80;--line:rgba(74,222,128,.10);--line-strong:rgba(74,222,128,.22);--fd:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'IBM Plex Mono',monospace}
+:root{
+  --bg:#060f09;--bg-panel:#0c1a10;--bg-panel-2:#0f2215;
+  --text:#e8f5e9;--text-muted:#7a9b84;
+  --accent:#4ade80;--accent-dim:#22c55e;
+  --amber:#f2a93b;
+  --line:rgba(74,222,128,.10);--line-strong:rgba(74,222,128,.22);
+  --fd:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'IBM Plex Mono',monospace
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6;overflow-x:hidden}
 ::selection{background:var(--accent);color:var(--bg)}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.01em}
-.wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:600;letter-spacing:-.01em}
+.wrap{max-width:1060px;margin:0 auto;padding:0 32px}
 @media(max-width:720px){.wrap{padding:0 20px}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,.84,.44,1),transform .7s cubic-bezier(.16,.84,.44,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
 /* NAV */
-.back-nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(6,15,9,.75);border-bottom:1px solid var(--line);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+.back-nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(6,15,9,.8);border-bottom:1px solid var(--line);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
 .back-btn{font-family:var(--fm);font-size:12px;letter-spacing:.04em;color:var(--text-muted);display:flex;align-items:center;gap:8px;transition:color .2s}
 .back-btn:hover{color:var(--accent)}
 .back-btn::before{content:'←';font-size:14px}
@@ -31,17 +38,25 @@ h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.01em}
 
 /* HERO */
 .proj-hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}
-#proj-canvas{position:absolute;inset:0;z-index:0;opacity:.85}
-.proj-hero-content{position:relative;z-index:2;max-width:680px}
+#proj-canvas{position:absolute;inset:0;z-index:0;opacity:.8}
+.proj-hero-content{position:relative;z-index:2;max-width:720px}
 .proj-eyebrow{font-family:var(--fm);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:18px}
 .proj-eyebrow::before{content:'';width:16px;height:1px;background:var(--accent)}
-.proj-title{font-size:clamp(42px,7vw,78px);line-height:1.0;margin-bottom:20px}
+.proj-title{font-size:clamp(42px,7vw,80px);line-height:1.0;margin-bottom:20px}
 .proj-title span{color:var(--accent)}
-.proj-tagline{font-size:clamp(15px,1.8vw,17px);color:var(--text-muted);max-width:520px;margin-bottom:32px}
+.proj-tagline{font-size:clamp(15px,1.8vw,17px);color:var(--text-muted);max-width:580px;margin-bottom:28px}
 .proj-meta{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:36px}
 .meta-tag{font-family:var(--fm);font-size:11px;letter-spacing:.04em;border:1px solid var(--line-strong);padding:5px 11px;border-radius:2px;color:var(--text-muted)}
 .meta-tag.hi{border-color:var(--accent);color:var(--accent)}
+.meta-tag.am{border-color:var(--amber);color:var(--amber)}
 .proj-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* HERO STATS */
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;padding-top:36px;border-top:1px solid var(--line)}
+.hstat .hstat-val{font-family:var(--fd);font-size:26px;font-weight:600;color:var(--accent)}
+.hstat .hstat-lbl{font-family:var(--fm);font-size:10px;color:var(--text-muted);margin-top:2px;letter-spacing:.06em;text-transform:uppercase}
+
+/* BUTTONS */
 .btn{font-family:var(--fm);font-size:12px;letter-spacing:.03em;padding:12px 22px;border-radius:2px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;gap:7px;transition:all .25s;cursor:pointer}
 .btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:500}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px -8px rgba(74,222,128,.45)}
@@ -55,35 +70,73 @@ h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:-.01em}
 .sec-ey::before{content:'';width:13px;height:1px;background:var(--accent)}
 h2.sec-t{font-size:clamp(22px,3.5vw,34px);margin-bottom:32px}
 
-/* OVERVIEW */
+/* OVERVIEW GRID */
 .ov-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:52px;align-items:start}
 @media(max-width:860px){.ov-grid{grid-template-columns:1fr;gap:36px}}
-.ov-text p{font-size:15px;color:var(--text-muted);margin-bottom:16px}
+.ov-text p{font-size:15px;color:var(--text-muted);margin-bottom:16px;line-height:1.7}
 .ov-text p:last-child{margin-bottom:0}
 .ov-text strong{color:var(--text)}
-.info-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:5px;padding:18px 20px;margin-bottom:10px}
+.info-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:5px;padding:18px 20px;margin-bottom:10px;transition:border-color .2s}
 .info-card:last-child{margin-bottom:0}
+.info-card:hover{border-color:var(--line-strong)}
 .info-lbl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:6px}
 .info-val{font-family:var(--fd);font-size:14px;color:var(--text)}
 
+/* FEATURE BLOCKS */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:800px){.feature-grid{grid-template-columns:1fr}}
+
+.feature-block{background:var(--bg-panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .3s}
+.feature-block:hover{border-color:var(--accent);transform:translateY(-3px)}
+.feature-block.wide{grid-column:1/-1}
+
+.fb-img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--line)}
+.fb-img.tall{aspect-ratio:3/4;object-position:top}
+.fb-body{padding:20px 22px}
+.fb-tag{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
+.fb-title{font-size:16px;font-weight:500;margin-bottom:8px;color:var(--text)}
+.fb-desc{font-size:13px;color:var(--text-muted);line-height:1.65}
+.fb-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.fb-chip{font-family:var(--fm);font-size:10px;color:var(--accent);border:1px solid rgba(74,222,128,.25);padding:3px 8px;border-radius:2px}
+
+/* TWO-COL screenshot layout */
+.sc-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:700px){.sc-pair{grid-template-columns:1fr}}
+.sc-img-wrap{border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.sc-img-wrap img{width:100%;display:block;object-fit:cover;object-position:top;transition:transform .4s ease}
+.sc-img-wrap:hover img{transform:scale(1.02)}
+.sc-caption{font-family:var(--fm);font-size:11px;color:var(--text-muted);text-align:center;margin-top:8px;letter-spacing:.04em}
+
 /* CONTRIB */
 .contrib-list{list-style:none}
-.contrib-list li{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
+.contrib-list li{display:flex;gap:16px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line)}
 .contrib-list li:last-child{border-bottom:none}
-.c-num{font-family:var(--fm);font-size:11px;color:var(--accent);opacity:.55;min-width:26px;padding-top:3px}
-.c-text{font-size:15px;color:var(--text-muted);line-height:1.65}
-.c-text strong{color:var(--text)}
+.c-num{font-family:var(--fm);font-size:11px;color:var(--accent);opacity:.55;min-width:26px;padding-top:3px;flex-shrink:0}
+.c-body{}
+.c-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:4px}
+.c-text{font-size:14px;color:var(--text-muted);line-height:1.65}
 
 /* STACK */
-.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
-.stack-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:5px;padding:14px 16px;display:flex;align-items:center;gap:10px;transition:border-color .2s,transform .2s}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.stack-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:5px;padding:14px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;transition:border-color .2s,transform .2s}
 .stack-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.stack-icon{width:26px;height:26px;object-fit:contain;flex-shrink:0}
-.stack-name{font-family:var(--fm);font-size:12px;color:var(--text)}
+.stack-icon{width:30px;height:30px;object-fit:contain;flex-shrink:0}
+.stack-name{font-family:var(--fm);font-size:11px;color:var(--text)}
+.stack-sub{font-family:var(--fm);font-size:10px;color:var(--text-muted);margin-top:-6px}
+.stack-fallback{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid var(--line-strong);border-radius:5px;color:var(--accent);font-family:var(--fm);font-weight:500;font-size:11px}
 
-/* SCREENSHOT PLACEHOLDER */
-.img-placeholder{background:var(--bg-panel);border:1px dashed var(--line-strong);border-radius:8px;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.img-placeholder p{font-family:var(--fm);font-size:11px;color:var(--text-muted);opacity:.6}
+/* ARCH */
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.arch-grid{grid-template-columns:1fr}}
+.arch-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:6px;padding:22px}
+.arch-icon{font-size:22px;margin-bottom:12px}
+.arch-title{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:8px}
+.arch-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* SKILLS TAGS */
+.skills-tags{display:flex;flex-wrap:wrap;gap:9px}
+.skill-tag{font-family:var(--fm);font-size:12px;color:var(--text-muted);border:1px solid var(--line-strong);padding:7px 13px;border-radius:3px;transition:color .2s,border-color .2s,transform .2s}
+.skill-tag:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
 
 /* FOOTER */
 footer{border-top:1px solid var(--line);padding:32px 0}
@@ -98,89 +151,304 @@ footer{border-top:1px solid var(--line);padding:32px 0}
   <div class="nav-logo">M<span>.</span>A — <span>allet</span></div>
 </nav>
 
+<!-- ── HERO ── -->
 <section class="proj-hero">
   <canvas id="proj-canvas"></canvas>
   <div class="wrap">
     <div class="proj-hero-content">
-      <div class="proj-eyebrow">Projet académique · Équipe de 6</div>
+      <div class="proj-eyebrow">Projet académique · Équipe de 6 · ÉTS</div>
       <h1 class="proj-title">Budg<span>ETS</span></h1>
-      <p class="proj-tagline">Application web de gestion de finances personnelles avec enveloppes budgétaires, objectifs d'épargne communs et visualisation graphique.</p>
+      <p class="proj-tagline">Application web fullstack de gestion de finances personnelles — enveloppes budgétaires, objectifs d'épargne communs, visualisation graphique et authentification JWT.</p>
       <div class="proj-meta">
         <span class="meta-tag hi">Frontend</span>
         <span class="meta-tag">Mars — Avril 2026</span>
-        <span class="meta-tag">React · TypeScript · Tailwind</span>
+        <span class="meta-tag am">React · NestJS · MySQL</span>
+        <span class="meta-tag">JWT · Cloudinary · Railway</span>
       </div>
       <div class="proj-cta">
-        <a href="https://github.com/BudgetsOrg/Projet_BudgETS" class="btn btn-primary">GitHub (privé) →</a>
+        <a href="#" class="btn btn-primary ">GitHub (privé)</a>
+        <a href="https://www.figma.com/design/JIbi7fGumdA4ONli6Sludk/Untitled?node-id=0-1&t=0UA4sR3d47sYJoE9-1" target="_blank" rel="noopener" class="btn btn-ghost" style="border-color:rgba(162,89,255,.4);color:#a259ff">Voir le Figma →</a>
         <a href="../index.html" class="btn btn-ghost">← Retour</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lbl">Développeurs</div></div>
+        <div class="hstat"><div class="hstat-val">JWT</div><div class="hstat-lbl">Authentification</div></div>
+        <div class="hstat"><div class="hstat-val">REST</div><div class="hstat-lbl">Architecture API</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="overview">
+<!-- ── APERÇU ── -->
+<section class="sec">
   <div class="wrap">
     <div class="sec-ey reveal">Aperçu</div>
     <h2 class="sec-t reveal">Le projet</h2>
     <div class="ov-grid">
       <div class="ov-text reveal d1">
-        <p>BudgETS est une application web de <strong>gestion de finances personnelles</strong> développée en équipe de 6 à l'ÉTS. L'application repose sur le concept d'<strong>enveloppes budgétaires</strong> — allouer son argent dans des catégories de dépenses prédéfinies.</p>
-        <p>Les utilisateurs créent des <strong>objectifs d'épargne mensuels</strong> individuels ou partagés entre plusieurs utilisateurs, avec suivi visuel de la progression via des graphiques interactifs.</p>
-        <p>Un système de <strong>notifications par courriel</strong> envoie des rappels quotidiens pour maintenir les habitudes budgétaires.</p>
+        <p>BudgETS est une application web <strong>fullstack</strong> de gestion de finances personnelles développée en équipe de 6 à l'ÉTS. L'application repose sur le concept d'<strong>enveloppes budgétaires</strong> — allouer son argent dans des catégories de dépenses prédéfinies, avec suivi mensuel.</p>
+        <p>Le backend est construit avec <strong>NestJS et TypeORM</strong>, communiquant avec une base de données <strong>MySQL</strong> hébergée sur Railway. L'authentification est gérée via des <strong>tokens JWT</strong> sécurisés. Les images de profil sont stockées sur <strong>Cloudinary</strong>. L'API est documentée avec <strong>Swagger</strong>.</p>
+        <p>La conception des entités et la structure de la base de données ont été réalisées avec <strong>Visual Paradigm</strong> (diagrammes UML et entité-relation), garantissant une architecture de données solide avant l'implémentation.</p>
       </div>
       <div class="reveal d2">
         <div class="info-card"><div class="info-lbl">Rôle</div><div class="info-val">Membre Frontend</div></div>
         <div class="info-card"><div class="info-lbl">Équipe</div><div class="info-val">6 personnes</div></div>
-        <div class="info-card"><div class="info-lbl">Durée</div><div class="info-val">2 mois — ÉTS</div></div>
-        <div class="info-card"><div class="info-lbl">Type</div><div class="info-val">Projet académique</div></div>
+        <div class="info-card"><div class="info-lbl">Durée</div><div class="info-val">Mars — Avril 2026 (2 mois)</div></div>
+        <div class="info-card"><div class="info-lbl">Architecture</div><div class="info-val">React (Frontend) · NestJS (Backend)</div></div>
+        <div class="info-card"><div class="info-lbl">Base de données</div><div class="info-val">MySQL · Railway · TypeORM</div></div>
+        <div class="info-card"><div class="info-lbl">Auth</div><div class="info-val">JWT (JSON Web Token)</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── LANDING PAGE ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Aperçu visuel</div>
-    <h2 class="sec-t reveal">Captures d'écran</h2>
-    <div class="img-placeholder reveal d1">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" opacity=".3"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#4ade80" stroke-width="1.2"/><circle cx="8.5" cy="8.5" r="1.5" stroke="#4ade80" stroke-width="1.2"/><path d="M21 15l-5-5L5 21" stroke="#4ade80" stroke-width="1.2"/></svg>
-      <p>Captures d'écran à ajouter</p>
+    <div class="sec-ey reveal">Pages d'accueil</div>
+    <h2 class="sec-t reveal">Présentation de l'application</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+      La landing page présente BudgETS aux nouveaux visiteurs avec une section <strong style="color:var(--text)">"Pourquoi choisir BudgETS ?"</strong> qui explique les trois fonctionnalités clés. L'application inclut également une <strong style="color:var(--text)">page Éducation financière</strong> accessible depuis la navigation, qui offre des conseils pratiques sur la gestion des finances personnelles pour aider les utilisateurs à adopter de bonnes habitudes budgétaires.
+    </p>
+    <div class="sc-pair reveal d1">
+      <div>
+        <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageAcceuil1.png" alt="Page d'accueil BudgETS - hero"></div>
+        <div class="sc-caption">Page d'accueil — présentation de l'application + CTA</div>
+      </div>
+      <div>
+        <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageAcceuil2.png" alt="Page d'accueil BudgETS - fonctionnalités"></div>
+        <div class="sc-caption">Section fonctionnalités — enveloppes, objectifs, dépenses</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="contributions">
+<!-- ── AUTH ── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Authentification</div>
+    <h2 class="sec-t reveal">Connexion & Inscription</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+      Le système d'authentification repose sur des <strong style="color:var(--text)">tokens JWT</strong>. À l'inscription, les informations de l'utilisateur sont envoyées via une requête POST à l'API NestJS, qui les stocke en MySQL après hachage du mot de passe. À la connexion, un token JWT signé est retourné et stocké côté client pour autoriser les requêtes suivantes. Un bouton <strong style="color:var(--text)">«&nbsp;Mot de passe oublié&nbsp;»</strong> permet de réinitialiser le mot de passe : l'utilisateur entre son courriel, et un <strong style="color:var(--text)">email de réinitialisation</strong> lui est automatiquement envoyé par le backend NestJS avec un lien sécurisé et temporaire.
+    </p>
+    <div class="sc-pair reveal d1">
+      <div>
+        <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageConnexion.png" alt="Page de connexion"></div>
+        <div class="sc-caption">Page Connexion — email + mot de passe + JWT</div>
+      </div>
+      <div>
+        <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/Inscription.png" alt="Page d'inscription"></div>
+        <div class="sc-caption">Page Inscription — formulaire complet + stockage DB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DASHBOARD ── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Tableau de bord</div>
+    <h2 class="sec-t reveal">Page principale</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+      Après connexion, l'utilisateur accède à son tableau de bord personnel. Il visualise son <strong style="color:var(--text)">solde du mois</strong>, ses différentes <strong style="color:var(--text)">enveloppes budgétaires</strong> avec un graphique PieChart de répartition, et ses <strong style="color:var(--text)">objectifs d'épargne</strong>. Toutes les données sont récupérées dynamiquement depuis l'API et persistées en base de données.
+    </p>
+    <div class="reveal d1">
+      <div class="sc-img-wrap" style="max-width:480px;margin:0 auto"><img src="../data/projects/images/BudgETS/PagePrincipale.png" alt="Page principale BudgETS" style="object-fit:cover;object-position:top;width:100%"></div>
+      <div class="sc-caption" style="text-align:center;margin-top:10px">Dashboard — PieChart · Enveloppes · Objectifs</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ENVELOPPE + OBJECTIF ── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Fonctionnalités clés</div>
+    <h2 class="sec-t reveal">Enveloppes & Objectifs</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+      Chaque enveloppe et objectif dispose d'une page dédiée avec graphique de visualisation. Les données sont <strong style="color:var(--text)">ajoutées dynamiquement</strong> via l'API et stockées en base de données MySQL. La page Objectif permet d'<strong style="color:var(--text)">inviter d'autres utilisateurs</strong> dans un objectif commun — chaque participant peut contribuer à l'épargne, rendant les objectifs partagés plus motivants et atteignables. Un utilisateur peut également <strong style="color:var(--text)">se retirer d'un objectif commun</strong> à tout moment via le bouton «&nbsp;Quitter&nbsp;».
+    </p>
+    <div class="sc-pair reveal d1">
+      <div>
+        <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageEnveloppe.png" alt="Page Enveloppe" style="object-fit:cover;object-position:top;height:420px;width:100%"></div>
+        <div class="sc-caption">Page Enveloppe — liste des dépenses + graphique barres hebdomadaire</div>
+      </div>
+      <div>
+        <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageObjectif.png" alt="Page Objectif" style="object-fit:cover;object-position:top;height:420px;width:100%"></div>
+        <div class="sc-caption">Page Objectif — progression épargne + graphique mensuel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROFIL ── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Gestion du profil</div>
+    <h2 class="sec-t reveal">Page Profil</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+      La page profil affiche les informations personnelles de l'utilisateur récupérées depuis l'API. La photo de profil est stockée sur <strong style="color:var(--text)">Cloudinary</strong> et référencée en base de données. L'utilisateur peut modifier ses informations ou supprimer son compte, chaque action déclenchant la requête API correspondante.
+    </p>
+    <div class="reveal d1" style="max-width:500px">
+      <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageProfile.png" alt="Page Profil"></div>
+      <div class="sc-caption" style="margin-top:8px">Page Profil — données persistées + Cloudinary pour les photos</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTRIBUTIONS ── -->
+<section class="sec">
   <div class="wrap">
     <div class="sec-ey reveal">Contributions</div>
     <h2 class="sec-t reveal">Ce que j'ai construit</h2>
     <ul class="contrib-list">
-      <li class="reveal d1"><span class="c-num">01</span><span class="c-text"><strong>Visualisation graphique</strong> — Développement des composants de graphiques pour afficher la progression financière en temps réel, permettant un suivi visuel immédiat de l'évolution budgétaire.</span></li>
-      <li class="reveal d2"><span class="c-num">02</span><span class="c-text"><strong>Notifications par courriel</strong> — Intégration du système d'envoi de rappels quotidiens automatiques pour maintenir les habitudes budgétaires des utilisateurs.</span></li>
-      <li class="reveal d3"><span class="c-num">03</span><span class="c-text"><strong>Composants React réutilisables</strong> — Conception et développement de composants TypeScript modulaires assurant une interface claire, réactive et cohérente à travers l'application.</span></li>
+      <li class="reveal">
+        <span class="c-num">01</span>
+        <div class="c-body">
+          <div class="c-title">Inscription & Connexion (JWT)</div>
+          <div class="c-text">Développement des formulaires d'inscription et de connexion avec validation côté client. Intégration des requêtes POST vers l'API NestJS pour créer un compte ou s'authentifier. Gestion du token JWT retourné pour autoriser les requêtes protégées.</div>
+        </div>
+      </li>
+      <li class="reveal d1">
+        <span class="c-num">02</span>
+        <div class="c-body">
+          <div class="c-title">Visualisation graphique — PieChart & graphiques barres</div>
+          <div class="c-text">Implémentation des composants de visualisation sur la page principale (PieChart de répartition des enveloppes), la page Enveloppe (graphique barres par jour de la semaine) et la page Objectif (graphique barres mensuel de progression d'épargne).</div>
+        </div>
+      </li>
+      <li class="reveal d2">
+        <span class="c-num">03</span>
+        <div class="c-body">
+          <div class="c-title">Page Enveloppe — affichage dynamique et ajout de dépenses</div>
+          <div class="c-text">Développement de la page de détail d'une enveloppe avec liste des dépenses récupérées depuis l'API, barre de progression du budget utilisé, et formulaire d'ajout de dépenses déclenché par requête POST stockée en MySQL.</div>
+        </div>
+      </li>
+      <li class="reveal d3">
+        <span class="c-num">04</span>
+        <div class="c-body">
+          <div class="c-title">Page Objectif — épargne partagée et suivi mensuel</div>
+          <div class="c-text">Création de la page Objectif avec affichage du montant à accumuler, des économies enregistrées et du pourcentage de progression. Gestion des objectifs partagés entre utilisateurs et affichage du graphique mensuel d'épargne.</div>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="c-num">05</span>
+        <div class="c-body">
+          <div class="c-title">Header dynamique — SessionStorage</div>
+          <div class="c-text">Développement du header de l'application en prenant en compte l'état de connexion de l'utilisateur, stocké en <strong style="color:var(--text)">SessionStorage</strong>. Le header adapte son contenu selon cet état (affichage du profil, navigation conditionnelle), ce qui implique de lire et d'écouter les changements de session pour garder l'interface cohérente.</div>
+        </div>
+      </li>
+      <li class="reveal d1">
+        <span class="c-num">06</span>
+        <div class="c-body">
+          <div class="c-title">Notifications par courriel</div>
+          <div class="c-text">Contribution à l'intégration du système d'envoi de rappels quotidiens par courriel pour maintenir les habitudes budgétaires des utilisateurs, déclenché par le backend NestJS.</div>
+        </div>
+      </li>
     </ul>
   </div>
 </section>
 
-<section class="sec" id="stack">
+<!-- ── ARCHITECTURE ── -->
+<section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Technologies</div>
-    <h2 class="sec-t reveal">Stack technique</h2>
-    <div class="stack-grid reveal d1">
-      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span class="stack-name">React</span></div>
-      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span class="stack-name">TypeScript</span></div>
-      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5"><span class="stack-name">HTML5</span></div>
-      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS"><span class="stack-name">CSS3</span></div>
-      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span class="stack-name">Tailwind</span></div>
-      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"><span class="stack-name">Git</span></div>
+    <div class="sec-ey reveal">Architecture</div>
+    <h2 class="sec-t reveal">Comment ça fonctionne</h2>
+    <div class="arch-grid reveal d1">
+      <div class="arch-card">
+        <div class="arch-icon">⚛</div>
+        <div class="arch-title">Frontend — React / TypeScript</div>
+        <div class="arch-desc">Interface en React avec TypeScript. Les composants consomment l'API REST via fetch, et l'état est géré localement. Tailwind CSS pour le style.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">🔒</div>
+        <div class="arch-title">Auth — JWT</div>
+        <div class="arch-desc">À la connexion, le backend retourne un JWT signé. Le token est envoyé dans l'en-tête Authorization de chaque requête protégée et vérifié par NestJS.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">🗄</div>
+        <div class="arch-title">Backend — NestJS / TypeORM</div>
+        <div class="arch-desc">API REST construite avec NestJS, TypeORM comme ORM pour communiquer avec MySQL. Base de données hébergée sur Railway. API documentée via Swagger.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">🖼</div>
+        <div class="arch-title">Images — Cloudinary</div>
+        <div class="arch-desc">Les photos de profil sont envoyées à Cloudinary, qui retourne une URL stockée en base de données. Pas de binaires en DB, juste des références URL.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">📐</div>
+        <div class="arch-title">Conception BDD — Visual Paradigm</div>
+        <div class="arch-desc">Diagrammes entité-relation et UML réalisés dans Visual Paradigm avant l'implémentation, définissant les entités, relations et contraintes de la base MySQL.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">📡</div>
+        <div class="arch-title">Déploiement — Railway</div>
+        <div class="arch-desc">La base de données MySQL est hébergée sur Railway. La connexion entre NestJS et Railway se fait via les variables d'environnement TypeORM.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap ft"><span class="ft-copy">© 2026 Mohamed-Amine Allet</span><a href="../index.html" class="btn btn-ghost">← Retour au portfolio</a></div></footer>
+<!-- ── STACK ── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Technologies</div>
+    <h2 class="sec-t reveal">Stack technique complète</h2>
+    <div class="stack-grid reveal d1">
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span class="stack-name">React</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span class="stack-name">TypeScript</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg" alt="NestJS"><span class="stack-name">NestJS</span><span class="stack-sub">TypeORM</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL"><span class="stack-name">MySQL</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5"><span class="stack-name">HTML5</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3"><span class="stack-name">CSS3</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span class="stack-name">Tailwind</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" alt="Swagger"><span class="stack-name">Swagger</span></div>
+      <div class="stack-card"><div class="stack-fallback">JWT</div><span class="stack-name">JSON Web Token</span></div>
+      <div class="stack-card"><div class="stack-fallback">☁</div><span class="stack-name">Cloudinary</span></div>
+      <div class="stack-card"><div class="stack-fallback">🚂</div><span class="stack-name">Railway</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"><span class="stack-name">Git</span></div>
+      <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"><span class="stack-name">Figma</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPÉTENCES ── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-ey reveal">Compétences développées</div>
+    <h2 class="sec-t reveal">Ce que ce projet m'a appris</h2>
+    <div class="skills-tags reveal d1">
+      <span class="skill-tag">Authentification JWT</span>
+      <span class="skill-tag">Développement d'API REST</span>
+      <span class="skill-tag">Conception de bases de données</span>
+      <span class="skill-tag">Gestion de BDD relationnelles</span>
+      <span class="skill-tag">Synchronisation des données</span>
+      <span class="skill-tag">Persistance des données</span>
+      <span class="skill-tag">Structures de données</span>
+      <span class="skill-tag">Visualisation de données</span>
+      <span class="skill-tag">Optimisation UX</span>
+      <span class="skill-tag">Conception d'interfaces (UI)</span>
+      <span class="skill-tag">Développement Web</span>
+      <span class="skill-tag">Développement fullstack</span>
+      <span class="skill-tag">Séparation des tâches</span>
+      <span class="skill-tag">Agile / Scrum</span>
+      <span class="skill-tag">Débogage</span>
+      <span class="skill-tag">Refactorisation de code</span>
+      <span class="skill-tag">Gestion d'images cloud</span>
+      <span class="skill-tag">ORM (TypeORM)</span>
+      <span class="skill-tag">SessionStorage</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <span class="ft-copy">© 2026 Mohamed-Amine Allet</span>
+    <a href="../index.html" class="btn btn-ghost">← Retour au portfolio</a>
+  </div>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.10});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 (function(){
