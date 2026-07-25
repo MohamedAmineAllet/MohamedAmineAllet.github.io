@@ -156,7 +156,7 @@ footer{border-top:1px solid var(--line);padding:32px 0}
   <canvas id="proj-canvas"></canvas>
   <div class="wrap">
     <div class="proj-hero-content">
-      <div class="proj-eyebrow">Projet académique · Équipe de 6 · ÉTS</div>
+      <div class="proj-eyebrow" data-i18n="hero_tagline_budgets">Projet académique · Équipe de 6 · ÉTS</div>
       <h1 class="proj-title">Budg<span>ETS</span></h1>
       <p class="proj-tagline">Application web fullstack de gestion de finances personnelles — enveloppes budgétaires, objectifs d'épargne communs, visualisation graphique et authentification JWT.</p>
       <div class="proj-meta">
@@ -447,6 +447,16 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../data/translations.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  I18n.init();
+});
+
+</script>
+
+
 <script>
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.10});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
@@ -488,5 +498,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   })();
 })();
 </script>
+
 </body>
 </html>

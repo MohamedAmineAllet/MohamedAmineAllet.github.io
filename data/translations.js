@@ -50,6 +50,7 @@ const TRANSLATIONS = {
     projects_eyebrow: "Travaux récents",
     projects_title:   "Projets",
     projects_sub:     "Une sélection de projets académiques et collaboratifs. D'autres arrivent bientôt.",
+    project_details_button: "Voir les détails",
     p1_role:  "Membre Frontend — Équipe de 6",
     p1_date:  "Mars 2026 — Avril 2026",
     p1_d1:    "Application web de gestion de finances personnelles via des enveloppes budgétaires et des objectifs d'épargne mensuels, avec possibilité de créer des objectifs communs entre utilisateurs.",
@@ -112,6 +113,7 @@ const TRANSLATIONS = {
     projects_eyebrow: "Recent work",
     projects_title:   "Projects",
     projects_sub:     "A selection of academic and collaborative projects. More are on the way.",
+    project_details_button: "See more",
     p1_role: "Frontend Member — Team of 6",
     p1_date: "March 2026 — April 2026",
     p1_d1:   "Personal finance web app built around budget envelopes and monthly savings goals, with support for shared goals between users.",
@@ -257,3 +259,15 @@ const NEW_FOUND = {
   },
 };
 Object.keys(NEW_FOUND).forEach(lang => Object.assign(TRANSLATIONS[lang], NEW_FOUND[lang]));
+
+// Page Présentation du Projet BudgETS.
+const BUDGETS = {
+fr: {
+hero_tagline_budgets : "Proj académique · Équipe de 6 · ÉTS",
+
+},
+en: {
+hero_tagline_budgets: "Academic Project · Team of 6 · ÉTS",
+},
+};
+Object.keys(BUDGETS).forEach(lang=> Object.assign(TRANSLATIONS[lang], BUDGETS[lang]));

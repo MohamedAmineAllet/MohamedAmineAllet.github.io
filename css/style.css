@@ -29,6 +29,7 @@ html[data-theme="light"] {
   --line-strong:rgba(22, 26, 32, 0.20);
 }
 
+
 :root {
   --font-display: 'Space Grotesk', sans-serif;
   --font-body:    'Inter', sans-serif;
@@ -332,6 +333,18 @@ nav {
 
 
 /* ── 10. SKILLS ────────────────────────────────────────────── */
+
+/* Image Logo technologies/Etc. */
+
+
+/* Mode sombre : montre version blanche, cache version noire */
+html[data-theme="dark"]  .logo-dark-only  { display: block; }
+html[data-theme="dark"]  .logo-light-only { display: none;  }
+
+/* Mode clair : montre version noire, cache version blanche */
+html[data-theme="light"] .logo-dark-only  { display: none;  }
+html[data-theme="light"] .logo-light-only { display: block; }
+
 
 .skills-grid {
   display:               grid;
