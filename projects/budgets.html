@@ -147,7 +147,7 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <body>
 
 <nav class="back-nav">
-  <a href="../index.html" class="back-btn">Portfolio</a>
+  <a href="../index.html" class="back-btn" data-i18n="nav_portfolio_back">Portfolio</a>
   <div class="nav-logo">M<span>.</span>A — <span>allet</span></div>
 </nav>
 
@@ -158,22 +158,22 @@ footer{border-top:1px solid var(--line);padding:32px 0}
     <div class="proj-hero-content">
       <div class="proj-eyebrow" data-i18n="hero_tagline_budgets">Projet académique · Équipe de 6 · ÉTS</div>
       <h1 class="proj-title">Budg<span>ETS</span></h1>
-      <p class="proj-tagline">Application web fullstack de gestion de finances personnelles — enveloppes budgétaires, objectifs d'épargne communs, visualisation graphique et authentification JWT.</p>
+      <p class="proj-tagline" data-i18n="proj_overview">Application web fullstack de gestion de finances personnelles — enveloppes budgétaires, objectifs d'épargne communs, visualisation graphique et authentification JWT.</p>
       <div class="proj-meta">
         <span class="meta-tag hi">Frontend</span>
-        <span class="meta-tag">Mars — Avril 2026</span>
+        <span class="meta-tag" data-i18n="proj_duration">Mars — Avril 2026</span>
         <span class="meta-tag am">React · NestJS · MySQL</span>
         <span class="meta-tag">JWT · Cloudinary · Railway</span>
       </div>
       <div class="proj-cta">
-        <a href="#" class="btn btn-primary ">GitHub (privé)</a>
-        <a href="https://www.figma.com/design/JIbi7fGumdA4ONli6Sludk/Untitled?node-id=0-1&t=0UA4sR3d47sYJoE9-1" target="_blank" rel="noopener" class="btn btn-ghost" style="border-color:rgba(162,89,255,.4);color:#a259ff">Voir le Figma →</a>
-        <a href="../index.html" class="btn btn-ghost">← Retour</a>
+        <a href="#" class="btn btn-primary " data-i18n="proj_github">GitHub (privé)</a>
+        <a href="https://www.figma.com/design/JIbi7fGumdA4ONli6Sludk/Untitled?node-id=0-1&t=0UA4sR3d47sYJoE9-1" target="_blank" rel="noopener" class="btn btn-ghost" style="border-color:rgba(162,89,255,.4);color:#a259ff" data-i18n="proj_figma">Voir le Figma →</a>
+        <a href="../index.html" class="btn btn-ghost" data-i18n="proj_back_btn">← Retour</a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lbl">Développeurs</div></div>
-        <div class="hstat"><div class="hstat-val">JWT</div><div class="hstat-lbl">Authentification</div></div>
-        <div class="hstat"><div class="hstat-val">REST</div><div class="hstat-lbl">Architecture API</div></div>
+        <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lbl" data-i18n="caracteristic_project_1">Développeurs</div></div>
+        <div class="hstat"><div class="hstat-val">JWT</div><div class="hstat-lbl" data-i18n="caracteristic_project_2">Authentification</div></div>
+        <div class="hstat"><div class="hstat-val">REST</div><div class="hstat-lbl" data-i18n="caracteristic_project_3">Architecture API</div></div>
       </div>
     </div>
   </div>
@@ -182,21 +182,21 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── APERÇU ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Aperçu</div>
-    <h2 class="sec-t reveal">Le projet</h2>
+    <div class="sec-ey reveal" data-i18n="ov_hero">Aperçu</div>
+    <h2 class="sec-t reveal" data-i18n="ov_title">Le projet</h2>
     <div class="ov-grid">
       <div class="ov-text reveal d1">
-        <p>BudgETS est une application web <strong>fullstack</strong> de gestion de finances personnelles développée en équipe de 6 à l'ÉTS. L'application repose sur le concept d'<strong>enveloppes budgétaires</strong> — allouer son argent dans des catégories de dépenses prédéfinies, avec suivi mensuel.</p>
-        <p>Le backend est construit avec <strong>NestJS et TypeORM</strong>, communiquant avec une base de données <strong>MySQL</strong> hébergée sur Railway. L'authentification est gérée via des <strong>tokens JWT</strong> sécurisés. Les images de profil sont stockées sur <strong>Cloudinary</strong>. L'API est documentée avec <strong>Swagger</strong>.</p>
-        <p>La conception des entités et la structure de la base de données ont été réalisées avec <strong>Visual Paradigm</strong> (diagrammes UML et entité-relation), garantissant une architecture de données solide avant l'implémentation.</p>
+        <p data-i18n-html="ov_description_01">BudgETS est une application web <strong>fullstack</strong> de gestion de finances personnelles développée en équipe de 6 à l'ÉTS. L'application repose sur le concept d'<strong>enveloppes budgétaires</strong> — allouer son argent dans des catégories de dépenses prédéfinies, avec suivi mensuel.</p>
+        <p data-i18n-html="ov_description_02">Le backend est construit avec <strong>NestJS et TypeORM</strong>, communiquant avec une base de données <strong>MySQL</strong> hébergée sur Railway. L'authentification est gérée via des <strong>tokens JWT</strong> sécurisés. Les images de profil sont stockées sur <strong>Cloudinary</strong>. L'API est documentée avec <strong>Swagger</strong>.</p>
+        <p data-i18n-html="ov_description_03">La conception des entités et la structure de la base de données ont été réalisées avec <strong>Visual Paradigm</strong> (diagrammes UML et entité-relation), garantissant une architecture de données solide avant l'implémentation.</p>
       </div>
       <div class="reveal d2">
-        <div class="info-card"><div class="info-lbl">Rôle</div><div class="info-val">Membre Frontend</div></div>
-        <div class="info-card"><div class="info-lbl">Équipe</div><div class="info-val">6 personnes</div></div>
-        <div class="info-card"><div class="info-lbl">Durée</div><div class="info-val">Mars — Avril 2026 (2 mois)</div></div>
-        <div class="info-card"><div class="info-lbl">Architecture</div><div class="info-val">React (Frontend) · NestJS (Backend)</div></div>
-        <div class="info-card"><div class="info-lbl">Base de données</div><div class="info-val">MySQL · Railway · TypeORM</div></div>
-        <div class="info-card"><div class="info-lbl">Auth</div><div class="info-val">JWT (JSON Web Token)</div></div>
+        <div class="info-card"><div class="info-lbl" data-i18n="prjct_box_details_title_01">Rôle</div><div class="info-val" data-i18n="prjct_box_details_01">Membre Frontend</div></div>
+        <div class="info-card"><div class="info-lbl" data-i18n="prjct_box_details_title_02">Équipe</div><div class="info-val" data-i18n="prjct_box_details_02">6 personnes</div></div>
+        <div class="info-card"><div class="info-lbl" data-i18n="ov_duree_lbl">Durée</div><div class="info-val" data-i18n="ov_duree_val">Mars — Avril 2026 (2 mois)</div></div>
+        <div class="info-card"><div class="info-lbl" data-i18n="ov_archi_lbl">Architecture</div><div class="info-val" data-i18n="ov_archi_val">React (Frontend) · NestJS (Backend)</div></div>
+        <div class="info-card"><div class="info-lbl" data-i18n="ov_bd_lbl">Base de données</div><div class="info-val" data-i18n="ov_bd_val">MySQL · Railway · TypeORM</div></div>
+        <div class="info-card"><div class="info-lbl" data-i18n="ov_auth_lbl">Auth</div><div class="info-val" data-i18n="ov_auth_val">JWT (JSON Web Token)</div></div>
       </div>
     </div>
   </div>
@@ -205,19 +205,19 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── LANDING PAGE ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Pages d'accueil</div>
-    <h2 class="sec-t reveal">Présentation de l'application</h2>
-    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+    <div class="sec-ey reveal" data-i18n="landing_ey">Pages d'accueil</div>
+    <h2 class="sec-t reveal" data-i18n="landing_title">Présentation de l'application</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1" data-i18n-html="landing_desc">
       La landing page présente BudgETS aux nouveaux visiteurs avec une section <strong style="color:var(--text)">"Pourquoi choisir BudgETS ?"</strong> qui explique les trois fonctionnalités clés. L'application inclut également une <strong style="color:var(--text)">page Éducation financière</strong> accessible depuis la navigation, qui offre des conseils pratiques sur la gestion des finances personnelles pour aider les utilisateurs à adopter de bonnes habitudes budgétaires.
     </p>
     <div class="sc-pair reveal d1">
       <div>
         <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageAcceuil1.png" alt="Page d'accueil BudgETS - hero"></div>
-        <div class="sc-caption">Page d'accueil — présentation de l'application + CTA</div>
+        <div class="sc-caption" data-i18n="landing_caption_1">Page d'accueil — présentation de l'application + CTA</div>
       </div>
       <div>
         <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageAcceuil2.png" alt="Page d'accueil BudgETS - fonctionnalités"></div>
-        <div class="sc-caption">Section fonctionnalités — enveloppes, objectifs, dépenses</div>
+        <div class="sc-caption" data-i18n="landing_caption_2">Section fonctionnalités — enveloppes, objectifs, dépenses</div>
       </div>
     </div>
   </div>
@@ -226,19 +226,19 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── AUTH ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Authentification</div>
-    <h2 class="sec-t reveal">Connexion & Inscription</h2>
-    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+    <div class="sec-ey reveal" data-i18n="auth_ey">Authentification</div>
+    <h2 class="sec-t reveal" data-i18n="auth_title">Connexion & Inscription</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1" data-i18n-html="auth_desc">
       Le système d'authentification repose sur des <strong style="color:var(--text)">tokens JWT</strong>. À l'inscription, les informations de l'utilisateur sont envoyées via une requête POST à l'API NestJS, qui les stocke en MySQL après hachage du mot de passe. À la connexion, un token JWT signé est retourné et stocké côté client pour autoriser les requêtes suivantes. Un bouton <strong style="color:var(--text)">«&nbsp;Mot de passe oublié&nbsp;»</strong> permet de réinitialiser le mot de passe : l'utilisateur entre son courriel, et un <strong style="color:var(--text)">email de réinitialisation</strong> lui est automatiquement envoyé par le backend NestJS avec un lien sécurisé et temporaire.
     </p>
     <div class="sc-pair reveal d1">
       <div>
         <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageConnexion.png" alt="Page de connexion"></div>
-        <div class="sc-caption">Page Connexion — email + mot de passe + JWT</div>
+        <div class="sc-caption" data-i18n="auth_caption_1">Page Connexion — email + mot de passe + JWT</div>
       </div>
       <div>
         <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/Inscription.png" alt="Page d'inscription"></div>
-        <div class="sc-caption">Page Inscription — formulaire complet + stockage DB</div>
+        <div class="sc-caption" data-i18n="auth_caption_2">Page Inscription — formulaire complet + stockage DB</div>
       </div>
     </div>
   </div>
@@ -247,14 +247,14 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── DASHBOARD ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Tableau de bord</div>
-    <h2 class="sec-t reveal">Page principale</h2>
-    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+    <div class="sec-ey reveal" data-i18n="dash_ey">Tableau de bord</div>
+    <h2 class="sec-t reveal" data-i18n="dash_title">Page principale</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1" data-i18n-html="dash_desc">
       Après connexion, l'utilisateur accède à son tableau de bord personnel. Il visualise son <strong style="color:var(--text)">solde du mois</strong>, ses différentes <strong style="color:var(--text)">enveloppes budgétaires</strong> avec un graphique PieChart de répartition, et ses <strong style="color:var(--text)">objectifs d'épargne</strong>. Toutes les données sont récupérées dynamiquement depuis l'API et persistées en base de données.
     </p>
     <div class="reveal d1">
       <div class="sc-img-wrap" style="max-width:480px;margin:0 auto"><img src="../data/projects/images/BudgETS/PagePrincipale.png" alt="Page principale BudgETS" style="object-fit:cover;object-position:top;width:100%"></div>
-      <div class="sc-caption" style="text-align:center;margin-top:10px">Dashboard — PieChart · Enveloppes · Objectifs</div>
+      <div class="sc-caption" style="text-align:center;margin-top:10px" data-i18n="dash_caption">Dashboard — PieChart · Enveloppes · Objectifs</div>
     </div>
   </div>
 </section>
@@ -262,19 +262,19 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── ENVELOPPE + OBJECTIF ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Fonctionnalités clés</div>
-    <h2 class="sec-t reveal">Enveloppes & Objectifs</h2>
-    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+    <div class="sec-ey reveal" data-i18n="env_ey">Fonctionnalités clés</div>
+    <h2 class="sec-t reveal" data-i18n="env_title">Enveloppes & Objectifs</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1" data-i18n-html="env_desc">
       Chaque enveloppe et objectif dispose d'une page dédiée avec graphique de visualisation. Les données sont <strong style="color:var(--text)">ajoutées dynamiquement</strong> via l'API et stockées en base de données MySQL. La page Objectif permet d'<strong style="color:var(--text)">inviter d'autres utilisateurs</strong> dans un objectif commun — chaque participant peut contribuer à l'épargne, rendant les objectifs partagés plus motivants et atteignables. Un utilisateur peut également <strong style="color:var(--text)">se retirer d'un objectif commun</strong> à tout moment via le bouton «&nbsp;Quitter&nbsp;».
     </p>
     <div class="sc-pair reveal d1">
       <div>
         <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageEnveloppe.png" alt="Page Enveloppe" style="object-fit:cover;object-position:top;height:420px;width:100%"></div>
-        <div class="sc-caption">Page Enveloppe — liste des dépenses + graphique barres hebdomadaire</div>
+        <div class="sc-caption" data-i18n="env_caption_1">Page Enveloppe — liste des dépenses + graphique barres hebdomadaire</div>
       </div>
       <div>
         <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageObjectif.png" alt="Page Objectif" style="object-fit:cover;object-position:top;height:420px;width:100%"></div>
-        <div class="sc-caption">Page Objectif — progression épargne + graphique mensuel</div>
+        <div class="sc-caption" data-i18n="env_caption_2">Page Objectif — progression épargne + graphique mensuel</div>
       </div>
     </div>
   </div>
@@ -283,14 +283,14 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── PROFIL ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Gestion du profil</div>
-    <h2 class="sec-t reveal">Page Profil</h2>
-    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1">
+    <div class="sec-ey reveal" data-i18n="profil_ey">Gestion du profil</div>
+    <h2 class="sec-t reveal" data-i18n="profil_title">Page Profil</h2>
+    <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin-bottom:32px" class="reveal d1" data-i18n-html="profil_desc">
       La page profil affiche les informations personnelles de l'utilisateur récupérées depuis l'API. La photo de profil est stockée sur <strong style="color:var(--text)">Cloudinary</strong> et référencée en base de données. L'utilisateur peut modifier ses informations ou supprimer son compte, chaque action déclenchant la requête API correspondante.
     </p>
     <div class="reveal d1" style="max-width:500px">
       <div class="sc-img-wrap"><img src="../data/projects/images/BudgETS/PageProfile.png" alt="Page Profil"></div>
-      <div class="sc-caption" style="margin-top:8px">Page Profil — données persistées + Cloudinary pour les photos</div>
+      <div class="sc-caption" style="margin-top:8px" data-i18n="profil_caption">Page Profil — données persistées + Cloudinary pour les photos</div>
     </div>
   </div>
 </section>
@@ -298,49 +298,49 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── CONTRIBUTIONS ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Contributions</div>
-    <h2 class="sec-t reveal">Ce que j'ai construit</h2>
+    <div class="sec-ey reveal" data-i18n="contrib_ey">Contributions</div>
+    <h2 class="sec-t reveal" data-i18n="contrib_title">Ce que j'ai construit</h2>
     <ul class="contrib-list">
       <li class="reveal">
         <span class="c-num">01</span>
         <div class="c-body">
-          <div class="c-title">Inscription & Connexion (JWT)</div>
-          <div class="c-text">Développement des formulaires d'inscription et de connexion avec validation côté client. Intégration des requêtes POST vers l'API NestJS pour créer un compte ou s'authentifier. Gestion du token JWT retourné pour autoriser les requêtes protégées.</div>
+          <div class="c-title" data-i18n="contrib_1_title">Inscription & Connexion (JWT)</div>
+          <div class="c-text" data-i18n="contrib_1_text">Développement des formulaires d'inscription et de connexion avec validation côté client. Intégration des requêtes POST vers l'API NestJS pour créer un compte ou s'authentifier. Gestion du token JWT retourné pour autoriser les requêtes protégées.</div>
         </div>
       </li>
       <li class="reveal d1">
         <span class="c-num">02</span>
         <div class="c-body">
-          <div class="c-title">Visualisation graphique — PieChart & graphiques barres</div>
-          <div class="c-text">Implémentation des composants de visualisation sur la page principale (PieChart de répartition des enveloppes), la page Enveloppe (graphique barres par jour de la semaine) et la page Objectif (graphique barres mensuel de progression d'épargne).</div>
+          <div class="c-title" data-i18n="contrib_2_title">Visualisation graphique — PieChart & graphiques barres</div>
+          <div class="c-text" data-i18n="contrib_2_text">Implémentation des composants de visualisation sur la page principale (PieChart de répartition des enveloppes), la page Enveloppe (graphique barres par jour de la semaine) et la page Objectif (graphique barres mensuel de progression d'épargne).</div>
         </div>
       </li>
       <li class="reveal d2">
         <span class="c-num">03</span>
         <div class="c-body">
-          <div class="c-title">Page Enveloppe — affichage dynamique et ajout de dépenses</div>
-          <div class="c-text">Développement de la page de détail d'une enveloppe avec liste des dépenses récupérées depuis l'API, barre de progression du budget utilisé, et formulaire d'ajout de dépenses déclenché par requête POST stockée en MySQL.</div>
+          <div class="c-title" data-i18n="contrib_3_title">Page Enveloppe — affichage dynamique et ajout de dépenses</div>
+          <div class="c-text" data-i18n="contrib_3_text">Développement de la page de détail d'une enveloppe avec liste des dépenses récupérées depuis l'API, barre de progression du budget utilisé, et formulaire d'ajout de dépenses déclenché par requête POST stockée en MySQL.</div>
         </div>
       </li>
       <li class="reveal d3">
         <span class="c-num">04</span>
         <div class="c-body">
-          <div class="c-title">Page Objectif — épargne partagée et suivi mensuel</div>
-          <div class="c-text">Création de la page Objectif avec affichage du montant à accumuler, des économies enregistrées et du pourcentage de progression. Gestion des objectifs partagés entre utilisateurs et affichage du graphique mensuel d'épargne.</div>
+          <div class="c-title" data-i18n="contrib_4_title">Page Objectif — épargne partagée et suivi mensuel</div>
+          <div class="c-text" data-i18n="contrib_4_text">Création de la page Objectif avec affichage du montant à accumuler, des économies enregistrées et du pourcentage de progression. Gestion des objectifs partagés entre utilisateurs et affichage du graphique mensuel d'épargne.</div>
         </div>
       </li>
       <li class="reveal">
         <span class="c-num">05</span>
         <div class="c-body">
-          <div class="c-title">Header dynamique — SessionStorage</div>
-          <div class="c-text">Développement du header de l'application en prenant en compte l'état de connexion de l'utilisateur, stocké en <strong style="color:var(--text)">SessionStorage</strong>. Le header adapte son contenu selon cet état (affichage du profil, navigation conditionnelle), ce qui implique de lire et d'écouter les changements de session pour garder l'interface cohérente.</div>
+          <div class="c-title" data-i18n="contrib_5_title">Header dynamique — SessionStorage</div>
+          <div class="c-text" data-i18n-html="contrib_5_text">Développement du header de l'application en prenant en compte l'état de connexion de l'utilisateur, stocké en <strong style="color:var(--text)">SessionStorage</strong>. Le header adapte son contenu selon cet état (affichage du profil, navigation conditionnelle), ce qui implique de lire et d'écouter les changements de session pour garder l'interface cohérente.</div>
         </div>
       </li>
       <li class="reveal d1">
         <span class="c-num">06</span>
         <div class="c-body">
-          <div class="c-title">Notifications par courriel</div>
-          <div class="c-text">Contribution à l'intégration du système d'envoi de rappels quotidiens par courriel pour maintenir les habitudes budgétaires des utilisateurs, déclenché par le backend NestJS.</div>
+          <div class="c-title" data-i18n="contrib_6_title">Notifications par courriel</div>
+          <div class="c-text" data-i18n="contrib_6_text">Contribution à l'intégration du système d'envoi de rappels quotidiens par courriel pour maintenir les habitudes budgétaires des utilisateurs, déclenché par le backend NestJS.</div>
         </div>
       </li>
     </ul>
@@ -350,38 +350,38 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── ARCHITECTURE ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Architecture</div>
-    <h2 class="sec-t reveal">Comment ça fonctionne</h2>
+    <div class="sec-ey reveal" data-i18n="arch_ey">Architecture</div>
+    <h2 class="sec-t reveal" data-i18n="arch_title">Comment ça fonctionne</h2>
     <div class="arch-grid reveal d1">
       <div class="arch-card">
         <div class="arch-icon">⚛</div>
-        <div class="arch-title">Frontend — React / TypeScript</div>
-        <div class="arch-desc">Interface en React avec TypeScript. Les composants consomment l'API REST via fetch, et l'état est géré localement. Tailwind CSS pour le style.</div>
+        <div class="arch-title" data-i18n="arch_1_title">Frontend — React / TypeScript</div>
+        <div class="arch-desc" data-i18n="arch_1_desc">Interface en React avec TypeScript. Les composants consomment l'API REST via fetch, et l'état est géré localement. Tailwind CSS pour le style.</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">🔒</div>
-        <div class="arch-title">Auth — JWT</div>
-        <div class="arch-desc">À la connexion, le backend retourne un JWT signé. Le token est envoyé dans l'en-tête Authorization de chaque requête protégée et vérifié par NestJS.</div>
+        <div class="arch-title" data-i18n="arch_2_title">Auth — JWT</div>
+        <div class="arch-desc" data-i18n="arch_2_desc">À la connexion, le backend retourne un JWT signé. Le token est envoyé dans l'en-tête Authorization de chaque requête protégée et vérifié par NestJS.</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">🗄</div>
-        <div class="arch-title">Backend — NestJS / TypeORM</div>
-        <div class="arch-desc">API REST construite avec NestJS, TypeORM comme ORM pour communiquer avec MySQL. Base de données hébergée sur Railway. API documentée via Swagger.</div>
+        <div class="arch-title" data-i18n="arch_3_title">Backend — NestJS / TypeORM</div>
+        <div class="arch-desc" data-i18n="arch_3_desc">API REST construite avec NestJS, TypeORM comme ORM pour communiquer avec MySQL. Base de données hébergée sur Railway. API documentée via Swagger.</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">🖼</div>
-        <div class="arch-title">Images — Cloudinary</div>
-        <div class="arch-desc">Les photos de profil sont envoyées à Cloudinary, qui retourne une URL stockée en base de données. Pas de binaires en DB, juste des références URL.</div>
+        <div class="arch-title" data-i18n="arch_4_title">Images — Cloudinary</div>
+        <div class="arch-desc" data-i18n="arch_4_desc">Les photos de profil sont envoyées à Cloudinary, qui retourne une URL stockée en base de données. Pas de binaires en DB, juste des références URL.</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">📐</div>
-        <div class="arch-title">Conception BDD — Visual Paradigm</div>
-        <div class="arch-desc">Diagrammes entité-relation et UML réalisés dans Visual Paradigm avant l'implémentation, définissant les entités, relations et contraintes de la base MySQL.</div>
+        <div class="arch-title" data-i18n="arch_5_title">Conception BDD — Visual Paradigm</div>
+        <div class="arch-desc" data-i18n="arch_5_desc">Diagrammes entité-relation et UML réalisés dans Visual Paradigm avant l'implémentation, définissant les entités, relations et contraintes de la base MySQL.</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">📡</div>
-        <div class="arch-title">Déploiement — Railway</div>
-        <div class="arch-desc">La base de données MySQL est hébergée sur Railway. La connexion entre NestJS et Railway se fait via les variables d'environnement TypeORM.</div>
+        <div class="arch-title" data-i18n="arch_6_title">Déploiement — Railway</div>
+        <div class="arch-desc" data-i18n="arch_6_desc">La base de données MySQL est hébergée sur Railway. La connexion entre NestJS et Railway se fait via les variables d'environnement TypeORM.</div>
       </div>
     </div>
   </div>
@@ -390,8 +390,8 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── STACK ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Technologies</div>
-    <h2 class="sec-t reveal">Stack technique complète</h2>
+    <div class="sec-ey reveal" data-i18n="stack_ey">Technologies</div>
+    <h2 class="sec-t reveal" data-i18n="stack_title">Stack technique complète</h2>
     <div class="stack-grid reveal d1">
       <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span class="stack-name">React</span></div>
       <div class="stack-card"><img class="stack-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span class="stack-name">TypeScript</span></div>
@@ -413,36 +413,36 @@ footer{border-top:1px solid var(--line);padding:32px 0}
 <!-- ── COMPÉTENCES ── -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-ey reveal">Compétences développées</div>
-    <h2 class="sec-t reveal">Ce que ce projet m'a appris</h2>
+    <div class="sec-ey reveal" data-i18n="comp_ey">Compétences développées</div>
+    <h2 class="sec-t reveal" data-i18n="comp_title">Ce que ce projet m'a appris</h2>
     <div class="skills-tags reveal d1">
-      <span class="skill-tag">Authentification JWT</span>
-      <span class="skill-tag">Développement d'API REST</span>
-      <span class="skill-tag">Conception de bases de données</span>
-      <span class="skill-tag">Gestion de BDD relationnelles</span>
-      <span class="skill-tag">Synchronisation des données</span>
-      <span class="skill-tag">Persistance des données</span>
-      <span class="skill-tag">Structures de données</span>
-      <span class="skill-tag">Visualisation de données</span>
-      <span class="skill-tag">Optimisation UX</span>
-      <span class="skill-tag">Conception d'interfaces (UI)</span>
-      <span class="skill-tag">Développement Web</span>
-      <span class="skill-tag">Développement fullstack</span>
-      <span class="skill-tag">Séparation des tâches</span>
-      <span class="skill-tag">Agile / Scrum</span>
-      <span class="skill-tag">Débogage</span>
-      <span class="skill-tag">Refactorisation de code</span>
-      <span class="skill-tag">Gestion d'images cloud</span>
-      <span class="skill-tag">ORM (TypeORM)</span>
-      <span class="skill-tag">SessionStorage</span>
+      <span class="skill-tag" data-i18n="budg_skill_1">Authentification JWT</span>
+      <span class="skill-tag" data-i18n="budg_skill_2">Développement d'API REST</span>
+      <span class="skill-tag" data-i18n="budg_skill_3">Conception de bases de données</span>
+      <span class="skill-tag" data-i18n="budg_skill_4">Gestion de BDD relationnelles</span>
+      <span class="skill-tag" data-i18n="budg_skill_5">Synchronisation des données</span>
+      <span class="skill-tag" data-i18n="budg_skill_6">Persistance des données</span>
+      <span class="skill-tag" data-i18n="budg_skill_7">Structures de données</span>
+      <span class="skill-tag" data-i18n="budg_skill_8">Visualisation de données</span>
+      <span class="skill-tag" data-i18n="budg_skill_9">Optimisation UX</span>
+      <span class="skill-tag" data-i18n="budg_skill_10">Conception d'interfaces (UI)</span>
+      <span class="skill-tag" data-i18n="budg_skill_11">Développement Web</span>
+      <span class="skill-tag" data-i18n="budg_skill_12">Développement fullstack</span>
+      <span class="skill-tag" data-i18n="budg_skill_13">Séparation des tâches</span>
+      <span class="skill-tag" data-i18n="budg_skill_14">Agile / Scrum</span>
+      <span class="skill-tag" data-i18n="budg_skill_15">Débogage</span>
+      <span class="skill-tag" data-i18n="budg_skill_16">Refactorisation de code</span>
+      <span class="skill-tag" data-i18n="budg_skill_17">Gestion d'images cloud</span>
+      <span class="skill-tag" data-i18n="budg_skill_18">ORM (TypeORM)</span>
+      <span class="skill-tag" data-i18n="budg_skill_19">SessionStorage</span>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap ft">
-    <span class="ft-copy">© 2026 Mohamed-Amine Allet</span>
-    <a href="../index.html" class="btn btn-ghost">← Retour au portfolio</a>
+    <span class="ft-copy" data-i18n="footer_copy_budgets">© 2026 Mohamed-Amine Allet</span>
+    <a href="../index.html" class="btn btn-ghost" data-i18n="footer_back_budgets">← Retour au portfolio</a>
   </div>
 </footer>
 
